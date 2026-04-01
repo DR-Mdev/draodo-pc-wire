@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dorado — Home (PC Wireframe)</title>
+<title>Dorado — Services (PC Wireframe)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
@@ -29,9 +29,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: var(--font-body);
     font-size: 16px;
@@ -88,9 +86,7 @@
     text-decoration: none;
     letter-spacing: -0.03em;
   }
-  .nav-logo span {
-    color: var(--grad-start);
-  }
+  .nav-logo span { color: var(--grad-start); }
   .nav-links {
     display: flex;
     align-items: center;
@@ -109,16 +105,16 @@
   .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
     background: linear-gradient(90deg, var(--grad-start), var(--main));
     border-radius: 2px;
     transition: width 0.22s ease;
   }
   .nav-links a:hover { color: var(--ink); }
   .nav-links a:hover::after { width: 100%; }
+  .nav-links a.active { color: var(--ink); }
+  .nav-links a.active::after { width: 100%; }
   .nav-right {
     display: flex;
     align-items: center;
@@ -133,8 +129,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 34px; height: 34px;
     border-radius: 50%;
     text-decoration: none;
     transition: opacity 0.2s, transform 0.15s;
@@ -142,11 +137,7 @@
   }
   .nav-msg-btn:hover { opacity: 0.82; transform: scale(1.06); }
   .nav-msg-btn svg { display: block; }
-  .nav-divider {
-    width: 1px;
-    height: 22px;
-    background: var(--border);
-  }
+  .nav-divider { width: 1px; height: 22px; background: var(--border); }
   .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -163,138 +154,8 @@
   }
   .nav-cta:hover { opacity: 0.88; }
 
-  /* ─── HERO ───────────────────────────────────────────────── */
-  .hero {
-    background: linear-gradient(140deg, var(--grad-start) 0%, var(--grad-end) 100%);
-    padding: 120px 0 108px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 80% 20%, rgba(108,127,196,0.25) 0%, transparent 55%),
-      radial-gradient(circle at 10% 80%, rgba(14,116,144,0.18) 0%, transparent 50%);
-  }
-  .hero-inner {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 64px;
-    align-items: center;
-  }
-  .hero-eyebrow {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: 52px;
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
-    color: var(--white);
-    margin-bottom: 24px;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: rgba(255,255,255,0.65);
-  }
-  .hero-sub {
-    font-size: 17px;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.7);
-    max-width: 520px;
-    margin-bottom: 40px;
-  }
-  .hero-ctas {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: var(--font-body);
-    color: var(--white);
-    background: var(--accent);
-    padding: 14px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn-primary:hover { background: #0c6680; }
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 400;
-    font-family: var(--font-body);
-    color: rgba(255,255,255,0.75);
-    background: transparent;
-    padding: 14px 0;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
-
-  /* Hero card */
-  .hero-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 32px;
-    backdrop-filter: blur(8px);
-  }
-  .hero-card-title {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 20px;
-  }
-  .hero-card-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .hero-card-item:last-child { border-bottom: none; }
-  .hero-card-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-top: 8px;
-    flex-shrink: 0;
-    opacity: 0.8;
-  }
-  .hero-card-item p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.5;
-  }
-
   /* ─── SECTION BASE ───────────────────────────────────────── */
   section { padding: var(--section-py) 0; }
-
   .section-header {
     max-width: 640px;
     margin-bottom: 56px;
@@ -319,349 +180,332 @@
     line-height: 1.7;
   }
 
-  /* ─── WHY JAPAN IS HARDER ────────────────────────────────── */
-  .why-section {
-    background: var(--surface);
-  }
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .why-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 32px;
-  }
-  .why-card-number {
-    font-family: var(--font-display);
-    font-size: 32px;
-    color: var(--border);
-    line-height: 1;
-    margin-bottom: 16px;
-    letter-spacing: -0.04em;
-  }
-  .why-card h3 {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .why-card p {
-    font-size: 15px;
-    color: var(--ink-mid);
-    line-height: 1.65;
-  }
-  .why-note {
-    margin-top: 40px;
-    padding: 24px 28px;
-    background: var(--main-tint);
-    border-left: 3px solid var(--main);
-    border-radius: 0 8px 8px 0;
-  }
-  .why-note p {
-    font-size: 15px;
-    color: var(--ink-mid);
-  }
-  .why-note strong { color: var(--ink); font-weight: 500; }
-
-  /* ─── COMMON MISTAKES ────────────────────────────────────── */
-  .mistakes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .mistake-item {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .mistake-item:last-child { border-bottom: none; }
-  .mistake-index {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 16px;
-    color: var(--ink-light);
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-  }
-  .mistake-content {
-    padding: 22px 28px;
-    background: var(--white);
-  }
-  .mistake-content h3 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .mistake-content p {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.6;
-  }
-
-  /* ─── VALIDATE FIRST ─────────────────────────────────────── */
-  .validate-section {
-    background: var(--surface);
-  }
-  .validate-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-  }
-  .validate-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 28px 22px;
-    text-align: center;
-  }
-  .validate-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--accent-tint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-  }
-  .validate-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--accent);
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .validate-card h3 {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-  .validate-card p {
-    font-size: 13px;
-    color: var(--ink-mid);
-    line-height: 1.55;
-  }
-
-  /* ─── OFFERS ─────────────────────────────────────────────── */
-  .offers-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-bottom: 32px;
-  }
-  .offer-card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .offer-card--featured {
-    border-color: var(--main);
-  }
-  .offer-head {
-    padding: 28px 32px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .offer-card--featured .offer-head {
-    background: var(--main-tint);
-    border-bottom-color: var(--main);
-  }
-  .offer-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--main);
-    background: rgba(108,127,196,0.1);
-    padding: 3px 10px;
-    border-radius: 100px;
-    margin-bottom: 14px;
-  }
-  .offer-tag--accent {
-    color: var(--accent);
-    background: var(--accent-tint);
-  }
-  .offer-head h3 {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .offer-head p {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.6;
-  }
-  .offer-body {
-    padding: 28px 32px;
-    background: var(--white);
-  }
-  .offer-body-title {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 14px;
-  }
-  .offer-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-  .offer-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.5;
-  }
-  .offer-list li::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-top: 9px;
-    flex-shrink: 0;
-  }
-  .offer-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: var(--font-body);
-    color: var(--accent);
-    background: var(--accent-tint);
-    padding: 13px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .offer-cta:hover { background: #c4e8f0; }
-  .offer-note {
-    text-align: center;
-    font-size: 14px;
-    color: var(--ink-light);
-  }
-  .offer-note a { color: var(--accent); text-decoration: underline; }
-
-  /* ─── WHY WORK THIS WAY ──────────────────────────────────── */
-  .approach-section {
+  /* ─── PAGE HERO ──────────────────────────────────────────── */
+  .page-hero {
     background: linear-gradient(140deg, var(--grad-start) 0%, var(--grad-end) 100%);
+    padding: 96px 0 88px;
+    position: relative;
+    overflow: hidden;
   }
-  .approach-grid {
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 75% 25%, rgba(108,127,196,0.22) 0%, transparent 55%),
+      radial-gradient(circle at 15% 80%, rgba(14,116,144,0.15) 0%, transparent 50%);
+  }
+  .page-hero-inner {
+    position: relative;
+    max-width: 720px;
+  }
+  .page-hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 22px;
+  }
+  .page-hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.68);
+    max-width: 580px;
+  }
+
+  /* ─── INTRO SECTION ──────────────────────────────────────── */
+  .intro-section { background: var(--surface); }
+  .intro-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
   }
-  .approach-left h2 {
-    color: var(--white);
-    letter-spacing: -0.025em;
-    margin-bottom: 20px;
-  }
-  .approach-left p {
+  .intro-left h2 { margin-bottom: 16px; }
+  .intro-left p {
     font-size: 16px;
-    color: rgba(255,255,255,0.68);
+    color: var(--ink-mid);
     line-height: 1.7;
-    margin-bottom: 36px;
   }
-  .approach-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .pill {
-    font-size: 13px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.8);
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    padding: 7px 16px;
-    border-radius: 100px;
-  }
-  .approach-right {
+  .intro-right {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
   }
-  .approach-point {
-    padding: 24px 28px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
+  .intro-stage {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .approach-point h3 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 6px;
+  .intro-stage:hover {
+    border-color: var(--main);
+    box-shadow: 0 2px 12px rgba(108,127,196,0.12);
   }
-  .approach-point p {
+  .intro-stage-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--border);
+    letter-spacing: -0.04em;
+    flex-shrink: 0;
+    width: 36px;
+  }
+  .intro-stage-text h4 {
     font-size: 14px;
-    color: rgba(255,255,255,0.58);
-    line-height: 1.6;
-  }
-
-  /* ─── WHO THIS IS FOR ────────────────────────────────────── */
-  .fit-section {
-    background: var(--surface);
-  }
-  .fit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .fit-col h3 {
-    font-size: 15px;
     font-weight: 500;
     color: var(--ink);
-    margin-bottom: 20px;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--border);
+    margin-bottom: 2px;
   }
-  .fit-col--yes h3 { border-color: var(--accent); color: var(--accent); }
-  .fit-col--no h3  { border-color: var(--border); color: var(--ink-light); }
-  .fit-list {
+  .intro-stage-text p {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+  .intro-stage-arrow {
+    margin-left: auto;
+    color: var(--ink-light);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* ─── SERVICE BLOCKS ─────────────────────────────────────── */
+  .service-block {
+    padding: var(--section-py) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .service-block:last-of-type { border-bottom: none; }
+  .service-block--alt { background: var(--surface); }
+
+  .service-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .service-inner--reversed { direction: rtl; }
+  .service-inner--reversed > * { direction: ltr; }
+
+  .service-left {}
+  .service-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .service-tag--accent {
+    color: var(--accent);
+    background: var(--accent-tint);
+  }
+  .service-tag--main {
+    color: var(--main);
+    background: rgba(108,127,196,0.1);
+  }
+  .service-tag--grad {
+    color: var(--grad-start);
+    background: rgba(132,57,107,0.09);
+  }
+  .service-left h2 {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .service-left p {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: var(--accent);
+    background: var(--accent-tint);
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .service-cta:hover { background: #c4e8f0; }
+  .service-cta--main {
+    color: var(--main);
+    background: rgba(108,127,196,0.1);
+  }
+  .service-cta--main:hover { background: rgba(108,127,196,0.18); }
+  .service-cta--grad {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+  }
+  .service-cta--grad:hover { opacity: 0.88; }
+
+  .service-right {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .service-card-head {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .service-card-head--accent-tint { background: var(--accent-tint); }
+  .service-card-head--main-tint {
+    background: var(--main-tint);
+    border-bottom-color: var(--main);
+  }
+  .service-card-head--grad {
+    background: linear-gradient(135deg, rgba(132,57,107,0.07), rgba(43,5,72,0.06));
+    border-bottom-color: rgba(132,57,107,0.2);
+  }
+  .service-card-head p {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0;
+  }
+  .service-card-body { padding: 28px; }
+  .service-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
-  .fit-list li {
+  .service-list li {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: 15px;
+    font-size: 14px;
     color: var(--ink-mid);
     line-height: 1.55;
   }
-  .fit-yes-mark {
-    width: 18px;
-    height: 18px;
+  .service-list-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .service-list-dot--main { background: var(--main); }
+  .service-list-dot--grad { background: var(--grad-start); }
+
+  /* ─── HOW SUPPORT IS STRUCTURED ──────────────────────────── */
+  .structure-section { background: var(--surface); }
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .structure-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+  }
+  .structure-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--main-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .structure-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--main);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .structure-card-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 14px;
+    letter-spacing: -0.04em;
+  }
+  .structure-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .structure-card p {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ─── WHAT CLIENTS SHOULD EXPECT ─────────────────────────── */
+  .expect-section {}
+  .expect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .expect-left h2 { margin-bottom: 16px; }
+  .expect-left p {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .expect-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .expect-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .expect-item:last-child { border-bottom: none; }
+  .expect-check {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: var(--accent-tint);
     display: flex;
@@ -670,7 +514,7 @@
     flex-shrink: 0;
     margin-top: 2px;
   }
-  .fit-yes-mark::after {
+  .expect-check::after {
     content: '';
     width: 7px;
     height: 4px;
@@ -679,25 +523,10 @@
     transform: rotate(-45deg) translateY(-1px);
     display: block;
   }
-  .fit-no-mark {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-size: 10px;
-    color: var(--ink-light);
-    line-height: 1;
-  }
-  .fit-no-mark::after {
-    content: '—';
-    display: block;
-    font-size: 11px;
+  .expect-item p {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.55;
   }
 
   /* ─── FAQ ────────────────────────────────────────────────── */
@@ -740,7 +569,61 @@
     line-height: 1.7;
   }
 
-  /* ─── CONTACT US SECTION ─────────────────────────────────── */
+  /* ─── CTA BAND ───────────────────────────────────────────── */
+  .cta-band {
+    background: var(--surface);
+    padding: 72px 0;
+    text-align: center;
+  }
+  .cta-band h2 { margin-bottom: 14px; }
+  .cta-band p {
+    font-size: 17px;
+    color: var(--ink-mid);
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
+  }
+  .cta-band-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    color: var(--white);
+    background: var(--accent);
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #0c6680; }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    color: var(--ink-mid);
+    background: var(--white);
+    padding: 13px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--main); color: var(--ink); }
+
+  /* ─── CONTACT SECTION ────────────────────────────────────── */
   .contact-section {
     background: linear-gradient(140deg, var(--grad-start) 0%, var(--grad-end) 100%);
     position: relative;
@@ -789,8 +672,7 @@
   }
   .contact-channel:hover { color: var(--white); }
   .contact-channel-icon {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border-radius: 50%;
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.15);
@@ -882,39 +764,6 @@
     margin-top: 12px;
   }
 
-  /* btn-accent still used in hero area */
-  .btn-accent {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: var(--font-body);
-    color: var(--white);
-    background: var(--accent);
-    padding: 14px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .btn-accent:hover { background: #0c6680; }
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 400;
-    font-family: var(--font-body);
-    color: var(--ink-mid);
-    background: var(--white);
-    padding: 13px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--main); color: var(--ink); }
-
   /* ─── FOOTER ─────────────────────────────────────────────── */
   footer {
     background: var(--ink);
@@ -958,25 +807,6 @@
     transition: color 0.2s;
   }
   .footer-col ul a:hover { color: var(--white); }
-  .footer-msg-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-msg-link:hover { color: var(--white); }
-  .footer-msg-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 28px;
@@ -989,11 +819,10 @@
     color: rgba(255,255,255,0.28);
   }
 
-  /* ─── WIREFRAME LABEL ────────────────────────────────────── */
+  /* ─── WIREFRAME BADGE ────────────────────────────────────── */
   .wf-badge {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: 24px; right: 24px;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -1008,30 +837,28 @@
 </style>
 </head>
 <body>
-<!-- NAV -->
+<!-- ═══ NAV (shared) ═══════════════════════════════════════════ -->
 <nav>
 <div class="container">
 <div class="nav-inner">
 <a class="nav-logo" href="/">Dorado<span>.</span></a>
 <ul class="nav-links">
 <li><a href="/who-we-work-with">Who we work with</a></li>
-<li><a href="/services">Services</a></li>
+<li><a class="active" href="/services">Services</a></li>
 <li><a href="/resources">Resources</a></li>
 <li><a href="/about">About</a></li>
 <li><a href="/contact#contact-form">Contact Us</a></li>
 </ul>
 <div class="nav-right">
 <div class="nav-messaging">
-<!-- WhatsApp -->
 <a class="nav-msg-btn" href="/contact#contact-form" style="background:#25D366;" title="WhatsApp">
-<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18">
 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
 <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 00.921.921l5.583-1.471A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path>
 </svg>
 </a>
-<!-- LINE -->
 <a class="nav-msg-btn" href="/contact#contact-form" style="background:#06C755;" title="LINE">
-<svg fill="white" height="18" viewbox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+<svg fill="white" height="18" viewbox="0 0 24 24" width="18">
 <path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v3.98h1.676a.49.49 0 010 .98zm1.673 0a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.49.49zm4.985 0a.49.49 0 01-.389-.19l-2.167-2.95v2.65a.49.49 0 01-.98 0V8.16a.49.49 0 01.877-.303l2.167 2.95V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.488.49zm2.772 0h-1.677a.49.49 0 01-.49-.49V8.16a.49.49 0 01.49-.49h1.677a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98z"></path>
 </svg>
 </a>
@@ -1042,314 +869,260 @@
 </div>
 </div>
 </nav>
-<!-- HERO -->
-<section class="hero">
+<!-- ═══ PAGE HERO ══════════════════════════════════════════════ -->
+<section class="page-hero">
 <div class="container">
-<div class="hero-inner">
-<div class="hero-copy">
-<p class="hero-eyebrow">Japan market entry · For growing international SMEs</p>
-<h1>Enter Japan with<br/><em>clarity, cadence,</em><br/>and realistic next steps.</h1>
-<p class="hero-sub">For international small and mid-sized companies exploring Japan, Dorado helps you clarify priorities, design a workable operating model, and move forward without overcommitting too early.</p>
-<div class="hero-ctas">
-<a class="btn-primary" href="/contact#contact-form">Contact Us</a>
+<div class="page-hero-inner">
+<p class="page-hero-eyebrow">Services</p>
+<h1>Three practical ways to move Japan entry forward.</h1>
+<p class="page-hero-sub">Some companies need a clearer starting picture. Some need deeper validation before making an internal decision. Others already need structured ongoing support. Dorado is designed to meet those different stages without pretending they are all the same.</p>
 </div>
 </div>
-<div class="hero-card">
-<p class="hero-card-title">What to clarify before you move</p>
-<div class="hero-card-item">
-<div class="hero-card-dot"></div>
-<p>Your first objective in Japan and what success should look like</p>
+</section>
+<!-- ═══ INTRO: CHOOSE THE LEVEL OF SUPPORT ═══════════════════ -->
+<section class="intro-section">
+<div class="container">
+<div class="intro-inner">
+<div class="intro-left">
+<div class="label">How to choose</div>
+<h2>Choose the level of support that fits the decision in front of you.</h2>
+<p>Not every company needs the same kind of help at the same time. That is why Dorado's service structure starts with lighter clarity, moves into deeper validation when needed, and can extend into cadence-based execution support when the work becomes ongoing.</p>
 </div>
-<div class="hero-card-item">
-<div class="hero-card-dot"></div>
-<p>ICP / IPP priorities and who you actually need to reach first</p>
+<div class="intro-right">
+<a class="intro-stage" href="/services#snapshot">
+<div class="intro-stage-num">01</div>
+<div class="intro-stage-text">
+<h4>Japan Entry Snapshot</h4>
+<p>For companies that need a structured starting picture</p>
 </div>
-<div class="hero-card-item">
-<div class="hero-card-dot"></div>
-<p>Partner, reseller, or direct go-to-market motion that fits your situation</p>
+<span class="intro-stage-arrow">↓</span>
+</a>
+<a class="intro-stage" href="/services#validation">
+<div class="intro-stage-num">02</div>
+<div class="intro-stage-text">
+<h4>Custom Market Validation Research</h4>
+<p>For teams making an internal commitment decision</p>
 </div>
-<div class="hero-card-item">
-<div class="hero-card-dot"></div>
-<p>What can be handled now and what should wait until later</p>
+<span class="intro-stage-arrow">↓</span>
+</a>
+<a class="intro-stage" href="/services#cadence">
+<div class="intro-stage-num">03</div>
+<div class="intro-stage-text">
+<h4>PartnerOps / SalesOps Cadence</h4>
+<p>For companies that need structured ongoing execution support</p>
 </div>
-<div class="hero-card-item">
-<div class="hero-card-dot"></div>
-<p>A realistic cadence, role split, and first-step execution path</p>
+<span class="intro-stage-arrow">↓</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ SERVICE 1: JAPAN ENTRY SNAPSHOT ══════════════════════ -->
+<section class="service-block" id="snapshot">
+<div class="container">
+<div class="service-inner">
+<div class="service-left">
+<span class="service-tag service-tag--accent">Good starting point</span>
+<h2>Japan Entry Snapshot</h2>
+<p>A concise, structured starting point for companies that want to understand what should be validated first before they commit to deeper market work.</p>
+<a class="service-cta" href="/contact#contact-form">Discuss a Japan Entry Snapshot</a>
+</div>
+<div class="service-right">
+<div class="service-card-head service-card-head--accent-tint">
+<p>What you get clarity on</p>
+</div>
+<div class="service-card-body">
+<ul class="service-list">
+<li>
+<span class="service-list-dot"></span>
+              The key questions that should be answered first
+            </li>
+<li>
+<span class="service-list-dot"></span>
+              The main unknowns affecting the Japan decision
+            </li>
+<li>
+<span class="service-list-dot"></span>
+              Initial hypotheses around market direction, route, or focus
+            </li>
+<li>
+<span class="service-list-dot"></span>
+              What should be explored next, and what can wait
+            </li>
+<li>
+<span class="service-list-dot"></span>
+              Whether deeper validation work is justified
+            </li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- WHY JAPAN IS HARDER -->
-<section class="why-section">
+<!-- ═══ SERVICE 2: CUSTOM MARKET VALIDATION RESEARCH ════════ -->
+<section class="service-block service-block--alt" id="validation">
 <div class="container">
-<div class="section-header">
-<div class="label">Reality check</div>
-<h2>Japan entry stalls when the operating model is unclear.</h2>
-<p class="section-body">Interest in Japan is not the same as readiness. Many companies have a credible product, some budget, and internal motivation, but no clear decision structure for how to explore the market without creating unnecessary cost and confusion.</p>
+<div class="service-inner service-inner--reversed">
+<div class="service-left">
+<span class="service-tag service-tag--main">For decision-making</span>
+<h2>Custom Market Validation Research</h2>
+<p>An in-depth validation project built around your specific product, market questions, and internal decision criteria.</p>
+<a class="service-cta service-cta--main" href="/contact#contact-form">Request a market validation discussion</a>
 </div>
-<div class="why-grid">
-<div class="why-card">
-<div class="why-card-number">01</div>
-<h3>A strong product alone does not create traction</h3>
-<p>Even when the product is solid, market entry usually stalls if the company has not defined its target profile, partner motion, or realistic first objective in Japan.</p>
+<div class="service-right">
+<div class="service-card-head service-card-head--main-tint">
+<p>What you get clarity on</p>
 </div>
-<div class="why-card">
-<div class="why-card-number">02</div>
-<h3>Execution breaks when roles and cadence are vague</h3>
-<p>Without a shared operating cadence, decision points, and clear ownership, tasks accumulate, momentum slows, and external support becomes hard to evaluate.</p>
-</div>
-<div class="why-card">
-<div class="why-card-number">03</div>
-<h3>The wrong early commitment creates fixed cost too soon</h3>
-<p>Hiring, incorporation, or large-scale execution before confirming the first workable path often locks a small company into unnecessary cost and complexity.</p>
-</div>
-<div class="why-card">
-<div class="why-card-number">04</div>
-<h3>Japan needs a structured way to test, not just ambition</h3>
-<p>For a growing company, the practical question is not whether Japan is attractive. It is what should be validated first, in what order, and with what level of commitment.</p>
-</div>
-</div>
-<div class="why-note">
-<p><strong>The most useful first step</strong> is usually a structured operating view: what needs to be decided, what can run in parallel, and what should not be started yet.</p>
-</div>
-</div>
-</section>
-<!-- COMMON MISTAKES -->
-<section>
-<div class="container">
-<div class="section-header">
-<div class="label">Common mistakes</div>
-<h2>What often goes wrong early on.</h2>
-<p class="section-body">These patterns show up repeatedly when companies approach Japan with interest, but without a clear operating model for validation and execution.</p>
-</div>
-<div class="mistakes-list">
-<div class="mistake-item">
-<div class="mistake-index">1</div>
-<div class="mistake-content">
-<h3>Starting with activity before defining the first objective</h3>
-<p>Teams often jump into outreach, translation, partner search, or meetings before agreeing on what they are actually trying to validate first.</p>
-</div>
-</div>
-<div class="mistake-item">
-<div class="mistake-index">2</div>
-<div class="mistake-content">
-<h3>Assuming an external partner can guarantee outcomes</h3>
-<p>Good support can improve speed and clarity, but no serious operator should promise guaranteed revenue, meetings, or timelines in a new market.</p>
-</div>
-</div>
-<div class="mistake-item">
-<div class="mistake-index">3</div>
-<div class="mistake-content">
-<h3>Adding more work items than the team can actively manage</h3>
-<p>When priorities are not limited, progress becomes harder to track. Important work gets buried under miscellaneous requests, follow-ups, and materials.</p>
-</div>
-</div>
-<div class="mistake-item">
-<div class="mistake-index">4</div>
-<div class="mistake-content">
-<h3>Treating localization as the strategy</h3>
-<p>Translation and localized materials are useful, but they do not replace target selection, message testing, stakeholder alignment, or partner qualification.</p>
-</div>
-</div>
-<div class="mistake-item">
-<div class="mistake-index">5</div>
-<div class="mistake-content">
-<h3>Running partner or customer outreach without internal alignment</h3>
-<p>Without clarity on ICP or IPP, positioning, priorities, and decision authority, external conversations create noise instead of learning.</p>
+<div class="service-card-body">
+<ul class="service-list">
+<li>
+<span class="service-list-dot service-list-dot--main"></span>
+              Demand hypothesis tested with available data
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--main"></span>
+              Channel and distribution landscape mapped
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--main"></span>
+              Partner types identified and assessed
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--main"></span>
+              Regulatory and operational barriers summarised
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--main"></span>
+              A structured view of options for next steps
+            </li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- WHAT TO VALIDATE FIRST -->
-<section class="validate-section">
+<!-- ═══ SERVICE 3: PARTNEROPS / SALESOPS CADENCE ════════════ -->
+<section class="service-block" id="cadence">
+<div class="container">
+<div class="service-inner">
+<div class="service-left">
+<span class="service-tag service-tag--grad">Ongoing execution</span>
+<h2>PartnerOps / SalesOps Cadence</h2>
+<p>A cadence-based operating model for companies that want structured support across target definition, outreach preparation, execution, and follow-through.</p>
+<a class="service-cta service-cta--grad" href="/contact#contact-form">Discuss PartnerOps / SalesOps Cadence</a>
+</div>
+<div class="service-right">
+<div class="service-card-head service-card-head--grad">
+<p>What you get clarity on</p>
+</div>
+<div class="service-card-body">
+<ul class="service-list">
+<li>
+<span class="service-list-dot service-list-dot--grad"></span>
+              Structured work items with active priorities
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--grad"></span>
+              Pulse updates focused on progress and decisions
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--grad"></span>
+              Flexible scope within a realistic WIP limit
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--grad"></span>
+              Support across outreach, meetings, and coordination
+            </li>
+<li>
+<span class="service-list-dot service-list-dot--grad"></span>
+              A practical operating rhythm for ongoing Japan entry work
+            </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ HOW SUPPORT IS STRUCTURED ════════════════════════════ -->
+<section class="structure-section">
 <div class="container">
 <div class="section-header centered">
-<div class="label">Validation checklist</div>
-<h2>What should be clarified first.</h2>
-<p class="section-body">Before heavier investment, these are the five areas that most benefit from structured review, decision-making, and operating discipline.</p>
+<div class="label">How the work is structured</div>
+<h2>How the work is typically structured.</h2>
+<p class="section-body">Ongoing support follows a practical sequence — not everything runs at once. Work is prioritised, tracked, and shared in a rhythm that keeps decisions visible and momentum real.</p>
 </div>
-<div class="validate-grid">
-<div class="validate-card">
-<div class="validate-icon">
+<div class="structure-grid">
+<div class="structure-card">
+<div class="structure-icon">
 <svg viewbox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
 </div>
-<h3>Initial objective</h3>
-<p>What are you trying to validate first: demand, partners, customers, or execution feasibility?</p>
+<div class="structure-card-num">01</div>
+<h3>Operating Foundation</h3>
+<p>Clarify objectives, define priorities, align the working rhythm, and establish how progress and decisions will be shared.</p>
 </div>
-<div class="validate-card">
-<div class="validate-icon">
+<div class="structure-card">
+<div class="structure-icon">
 <svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"></path></svg>
 </div>
-<h3>Target profile</h3>
-<p>Who specifically matters first in Japan: partner types, customer types, or both?</p>
+<div class="structure-card-num">02</div>
+<h3>Outreach Preparation and Execution</h3>
+<p>Support target definition, messaging preparation, list building, outreach planning, and related commercial activity where relevant.</p>
 </div>
-<div class="validate-card">
-<div class="validate-icon">
+<div class="structure-card">
+<div class="structure-icon">
 <svg viewbox="0 0 24 24"><circle cx="9" cy="7" r="4"></circle><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"></path><path d="M19 8v6m3-3h-6"></path></svg>
 </div>
-<h3>Operating cadence</h3>
-<p>How often should progress, decisions, and next actions be shared so the work actually moves?</p>
+<div class="structure-card-num">03</div>
+<h3>Meetings and Follow-through</h3>
+<p>Support preparation, coordination, follow-up, and practical next steps around commercial or partnership discussions.</p>
 </div>
-<div class="validate-card">
-<div class="validate-icon">
+<div class="structure-card">
+<div class="structure-icon">
 <svg viewbox="0 0 24 24"><rect height="20" rx="2" width="14" x="5" y="2"></rect><path d="M9 7h6M9 11h6M9 15h4"></path></svg>
 </div>
-<h3>WIP priorities</h3>
-<p>Which work items should run now, and which should wait until dependencies are resolved?</p>
-</div>
-<div class="validate-card">
-<div class="validate-icon">
-<svg viewbox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-</div>
-<h3>Next-step scope</h3>
-<p>What is the smallest practical scope that gives you better information without overcommitting?</p>
+<div class="structure-card-num">04</div>
+<h3>Ongoing Coordination</h3>
+<p>Maintain structured momentum through active priorities, Pulse Updates, and realistic sequencing rather than unmanaged parallel work.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- OFFERS -->
-<section>
+<!-- ═══ WHAT CLIENTS SHOULD EXPECT ═══════════════════════════ -->
+<section class="expect-section">
 <div class="container">
-<div class="section-header centered">
-<div class="label">Services</div>
-<h2>Where to start.</h2>
-<p class="section-body">Two entry points, depending on whether you need initial clarity or an operating cadence that supports actual execution.</p>
+<div class="expect-grid">
+<div class="expect-left">
+<div class="label">Our commitment</div>
+<h2>What clients should expect.</h2>
+<p>We work from the next decision that matters, keep priorities visible, and avoid inflating what the work can honestly deliver. The goal is to make Japan entry more manageable, not to make it sound easier than it is.</p>
 </div>
-<div class="offers-grid">
-<div class="offer-card">
-<div class="offer-head">
-<div class="offer-tag offer-tag--accent">Good starting point</div>
-<h3>Japan Entry Snapshot</h3>
-<p>A structured view of your Japan entry situation, key unknowns, and the decisions that should come first before a larger push.</p>
+<div class="expect-right">
+<div class="expect-item">
+<span class="expect-check"></span>
+<p>Structured progress rather than loose activity</p>
 </div>
-<div class="offer-body">
-<p class="offer-body-title">What you get clarity on</p>
-<ul class="offer-list">
-<li>The first questions that actually matter</li>
-<li>Your likely Japan entry priorities</li>
-<li>The main unknowns and dependencies</li>
-<li>Where research, outreach, or preparation should start</li>
-<li>Whether deeper validation or execution support makes sense</li>
-</ul>
-<a class="offer-cta" href="/services#snapshot">Discuss a Japan Entry Snapshot</a>
+<div class="expect-item">
+<span class="expect-check"></span>
+<p>Active priorities rather than everything happening at once</p>
 </div>
+<div class="expect-item">
+<span class="expect-check"></span>
+<p>Transparent updates focused on progress and decisions</p>
 </div>
-<div class="offer-card offer-card--featured">
-<div class="offer-head">
-<div class="offer-tag">For decision-making</div>
-<h3>Custom Market Validation Research</h3>
-<p>An in-depth validation project built around your specific product, market questions, and internal decision criteria.</p>
+<div class="expect-item">
+<span class="expect-check"></span>
+<p>Flexible support within realistic operating limits</p>
 </div>
-<div class="offer-body">
-<p class="offer-body-title">What you get clarity on</p>
-<ul class="offer-list">
-<li>Demand hypothesis tested with available data</li>
-<li>Channel and distribution landscape mapped</li>
-<li>Partner types identified and assessed</li>
-<li>Regulatory and operational barriers summarised</li>
-<li>A structured view of options for next steps</li>
-</ul>
-<a class="offer-cta" href="/services#validation">Request a market validation discussion</a>
-</div>
-</div>
-</div>
-<p class="offer-note">The goal is not to sell the largest scope first. The goal is to start with the level of support that fits your current decision and capacity.</p>
-</div>
-</section>
-<!-- WHY WORK THIS WAY -->
-<section class="approach-section">
-<div class="container">
-<div class="approach-grid">
-<div class="approach-left">
-<div class="label label--light">Our approach</div>
-<h2>We start with clarity, cadence, and realistic scope.</h2>
-<p>Our starting point is not maximum volume. It is a workable structure: what should move now, what requires a decision, what depends on something else, and how progress will be shared.</p>
-<div class="approach-pills">
-<span class="pill">Transparent process</span>
-<span class="pill">No inflated promises</span>
-<span class="pill">Collaborative by default</span>
-<span class="pill">Validate before scaling</span>
-</div>
-</div>
-<div class="approach-right">
-<div class="approach-point">
-<h3>We do not promise outcomes we cannot control</h3>
-<p>Japan entry involves real uncertainty. We can improve clarity, speed, and coordination, but not honestly guarantee sales revenue, meetings, or fixed timelines.</p>
-</div>
-<div class="approach-point">
-<h3>We work within your real operating constraints</h3>
-<p>Scope should fit your current team, budget, access, and decision needs. Not every task should run at the same time, and not every request should become an active priority immediately.</p>
-</div>
-<div class="approach-point">
-<h3>We make progress visible through cadence</h3>
-<p>Pulse updates are for decision speed, not for pretending that hours equal value. The point is to keep priorities visible, remove blockers, and keep the work moving.</p>
+<div class="expect-item">
+<span class="expect-check"></span>
+<p>No guaranteed commercial outcome claims</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- WHO THIS IS FOR -->
-<section class="fit-section">
-<div class="container">
-<div class="section-header centered">
-<div class="label">Ideal fit</div>
-<h2>Who this works well for.</h2>
-<p class="section-body">This work fits companies that want Japan entry support with realism, transparency, and enough structure to move without overbuilding too early.</p>
-</div>
-<div class="fit-grid">
-<div class="fit-col fit-col--yes">
-<h3>Good fit</h3>
-<ul class="fit-list">
-<li>
-<span class="fit-yes-mark"></span>
-            Your core business is stable and you have capacity to invest in exploration
-          </li>
-<li>
-<span class="fit-yes-mark"></span>
-            You see Japan as a medium-to-long-term opportunity, not a quick fix
-          </li>
-<li>
-<span class="fit-yes-mark"></span>
-            You want to validate before committing to heavier investment
-          </li>
-<li>
-<span class="fit-yes-mark"></span>
-            You are open to sharing context, access, and decisions so the work can move
-          </li>
-<li>
-<span class="fit-yes-mark"></span>
-            You understand that external support should improve decision quality, not replace judgment
-          </li>
-</ul>
-</div>
-<div class="fit-col fit-col--no">
-<h3>Probably not a fit</h3>
-<ul class="fit-list">
-<li>
-<span class="fit-no-mark"></span>
-            You need guaranteed outcomes within a short timeframe
-          </li>
-<li>
-<span class="fit-no-mark"></span>
-            You want an outsourced vendor with no shared planning or decision-making
-          </li>
-<li>
-<span class="fit-no-mark"></span>
-            You prefer not to share business context, access, or internal constraints
-          </li>
-<li>
-<span class="fit-no-mark"></span>
-            You expect every request to become an immediate active work item regardless of priority
-          </li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- FAQ -->
-<section>
+<!-- ═══ FAQ ═══════════════════════════════════════════════════ -->
+<section style="background: var(--surface);">
 <div class="container">
 <div class="section-header centered">
 <div class="label">Common questions</div>
@@ -1357,21 +1130,32 @@
 </div>
 <div class="faq-list">
 <div class="faq-item">
-<h3>Why not just start executing immediately?</h3>
-<p>Because early execution without a clear objective creates noise, fixed cost, and low-quality learning. A better starting point is to define the first decision, the first target profile, and the first workable operating scope.</p>
+<h3>Which service should we start with?</h3>
+<p>That depends on whether your immediate need is orientation, deeper validation, or structured ongoing support. A short conversation is usually enough to determine the right starting point.</p>
 </div>
 <div class="faq-item">
-<h3>Do we need a local entity or local hire first?</h3>
-<p>Not necessarily. In many cases, the better question is what you are trying to validate first and whether a local entity or hire is actually required for that stage.</p>
+<h3>Can services be connected over time?</h3>
+<p>Yes. Some companies begin with a Snapshot, move into validation, and later require more continuous operating support. The sequence depends on the maturity of the opportunity.</p>
 </div>
 <div class="faq-item">
-<h3>What do we actually get from a Snapshot or a Cadence package?</h3>
-<p>A Snapshot helps you see the situation clearly and decide what should happen next. A Cadence package gives you an operating rhythm for active work, including priorities, updates, and support across execution-related tasks.</p>
+<h3>Does ongoing support mean a guaranteed amount of output?</h3>
+<p>No. Ongoing support is structured around priorities, progress sharing, and realistic work sequencing. It is designed to help teams move effectively, not to create artificial promises.</p>
 </div>
 </div>
 </div>
 </section>
-<!-- CONTACT US -->
+<!-- ═══ CTA BAND ══════════════════════════════════════════════ -->
+<div class="cta-band">
+<div class="container">
+<h2>Explore the right starting point with us.</h2>
+<p>You do not need a finalised Japan strategy before reaching out. A short conversation is usually enough to determine which service fits best.</p>
+<div class="cta-band-btns">
+<a class="btn-primary" href="/contact#contact-form">Contact Us</a>
+<a class="btn-outline" href="/about">Learn about our approach</a>
+</div>
+</div>
+</div>
+<!-- ═══ CONTACT SECTION (shared) ═════════════════════════════ -->
 <section class="contact-section" id="contact">
 <div class="container">
 <div class="contact-inner">
@@ -1436,6 +1220,7 @@
 <select>
 <option disabled="" selected="" value="">Select a topic</option>
 <option>Japan Entry Snapshot</option>
+<option>Custom Market Validation Research</option>
 <option>PartnerOps / SalesOps Cadence</option>
 <option>General enquiry</option>
 <option>Something else</option>
@@ -1451,7 +1236,7 @@
 </div>
 </div>
 </section>
-<!-- FOOTER -->
+<!-- ═══ FOOTER (shared) ═══════════════════════════════════════ -->
 <footer>
 <div class="container">
 <div class="footer-grid">
@@ -1511,6 +1296,6 @@
 </div>
 </div>
 </footer>
-<div class="wf-badge">PC Wireframe · Home</div>
+<div class="wf-badge">PC Wireframe · Services</div>
 </body>
 </html>
