@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dorado - Contact (SP Wireframe)</title>
+  <title>Dorado - Home (SP Wireframe)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -277,12 +277,6 @@
 
     .mf-nav-panel__item + .mf-nav-panel__item {
       border-top: 1px solid var(--mf-border);
-    }
-
-    .mf-nav-panel__link[aria-current="page"] {
-      color: var(--mf-accent);
-      font-weight: 500;
-      background: var(--mf-accent-tint);
     }
 
     .mf-nav-panel__link {
@@ -1035,73 +1029,6 @@
       opacity: 0.8;
     }
 
-
-    .mf-contact-context {
-      background: var(--mf-white);
-    }
-
-    .mf-reasons {
-      background: var(--mf-surface);
-    }
-
-    .mf-direct {
-      background: var(--mf-white);
-    }
-
-    .mf-channel-card {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: var(--mf-space-16);
-      align-items: center;
-      padding: var(--mf-space-20, 20px) var(--mf-space-24);
-      background: var(--mf-white);
-      border: 1px solid var(--mf-border);
-      border-radius: var(--mf-radius-lg);
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.04);
-    }
-
-    .mf-channel-card__icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .mf-channel-card__icon--whatsapp {
-      background: #25D366;
-    }
-
-    .mf-channel-card__icon--line {
-      background: #06C755;
-    }
-
-    .mf-channel-card__icon--mail {
-      background: var(--mf-main-tint);
-      border: 1px solid var(--mf-border);
-    }
-
-    .mf-channel-card__body {
-      display: grid;
-      gap: 2px;
-    }
-
-    .mf-channel-card__title {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--mf-ink);
-      line-height: 1.35;
-    }
-
-    .mf-channel-card__text {
-      font-size: 13px;
-      color: var(--mf-ink-light);
-      line-height: 1.5;
-    }
-
     @media (min-width: 769px) {
       body {
         padding: var(--mf-space-24);
@@ -1121,7 +1048,7 @@
     <header class="mf-header">
       <div class="mf-container">
         <div class="mf-header__bar">
-          <a class="mf-header__logo" href="index.html">Dorado<span>.</span></a>
+          <a class="mf-header__logo" href="index_sp.html">Dorado<span>.</span></a>
           <button class="mf-header__toggle js-nav-toggle" type="button" aria-expanded="false" aria-controls="mf-mobile-nav" aria-label="Open navigation">
             <span class="mf-header__toggle-bar" aria-hidden="true"></span>
           </button>
@@ -1130,14 +1057,14 @@
       <nav class="mf-nav-panel" id="mf-mobile-nav" aria-label="Mobile navigation">
         <div class="mf-nav-panel__box">
           <ul class="mf-nav-panel__list">
-            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="who-we-work-with.html">Who we work with</a></li>
-            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="services.html">Services</a></li>
-            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="resources.html">Resources</a></li>
-            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="about.html">About</a></li>
-            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="contact.html" aria-current="page">Contact</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="who-we-work-with_sp.html">Who we work with</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="services_sp.html">Services</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="resources_sp.html">Resources</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="about_sp.html">About</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="contact_sp.html">Contact</a></li>
           </ul>
           <div class="mf-nav-panel__footer">
-            <a class="mf-nav-panel__cta" href="#contact-form">Discuss your next step</a>
+            <a class="mf-nav-panel__cta" href="#contact">Discuss your next step</a>
           <div class="mf-social-row mf-social-row--nav">
             <a class="mf-social-button mf-social-button--whatsapp" href="#" aria-label="WhatsApp">
                 <svg fill="white" height="18" viewBox="0 0 24 24" width="18">
@@ -1157,201 +1084,238 @@
     </header>
 
     <main class="mf-main">
-      <!-- parts/section/contact-hero.php -->
+      <!-- parts/section/hero.php -->
       <section class="mf-hero" id="top">
         <div class="mf-container">
           <div class="mf-hero__content">
-            <span class="mf-label mf-label--light">Contact</span>
-            <p class="mf-hero__eyebrow">Bring the question you want to clarify first</p>
-            <h1 class="mf-hero__title">A short message is enough to work out the next step.</h1>
-            <p class="mf-hero__body">You do not need a fully developed Japan plan before reaching out. A short message is usually enough to determine whether the next step is light orientation, deeper validation, or something more ongoing.</p>
+            <p class="mf-hero__eyebrow">For international SMEs considering Japan</p>
+            <h1 class="mf-hero__title">Before you hire, localise, or commit, clarify your first move in Japan.</h1>
+            <p class="mf-hero__body">Dorado helps growing companies decide what to validate first, where to focus, and what can wait, so Japan entry starts with better judgment rather than premature investment.</p>
             <div class="mf-hero__actions">
-              <a class="mf-button-primary" href="#contact-form">Send a message</a>
-              <a class="mf-button-secondary" href="#direct-channels">Reach us directly</a>
+              <a class="mf-button-primary" href="#questions">See what to validate first</a>
+              <a class="mf-button-secondary" href="#contact">Discuss your next step</a>
             </div>
             <div class="mf-hero__support">
-              <p class="mf-hero__support-title">Best first message</p>
+              <p class="mf-hero__support-title">Questions worth answering first</p>
               <ul class="mf-check-list">
-                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>What your company does, in one or two lines</span></li>
-                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>Why Japan is on the table now</span></li>
-                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>What you are trying to clarify first</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>Is Japan worth prioritising now, or later?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>What should you validate before heavier investment?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>When does a partner route make more sense than a direct move?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>What should not start yet?</span></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- parts/section/contact-context.php -->
-      <section class="mf-contact-context" id="context">
+      <!-- parts/section/questions.php -->
+      <section class="mf-questions" id="questions">
         <div class="mf-container">
           <div class="mf-section-head">
-            <span class="mf-label">Useful context</span>
-            <h2 class="mf-page-title">Tell us just enough so the first reply can be useful.</h2>
-            <p class="mf-section-copy">The first message does not need to be polished. The goal is to understand your decision context, not to review a perfect brief.</p>
+            <span class="mf-label">What to clarify first</span>
+            <h2 class="mf-page-title">Japan entry is not one decision. It is a sequence of decisions.</h2>
+            <p class="mf-section-copy">The early question is usually not whether Japan looks attractive. It is what needs to be clarified first so you can decide with less noise, less fixed cost, and a more realistic next step.</p>
           </div>
           <div class="mf-card-list">
             <article class="mf-question-card">
-              <h3 class="mf-question-card__title">What your company does</h3>
-              <p class="mf-question-card__body">A one or two line description is usually enough for the first exchange.</p>
+              <h3 class="mf-question-card__title">Is Japan worth prioritising now?</h3>
+              <p class="mf-question-card__body">For some companies, the right answer is not immediate expansion but a more disciplined review of timing, internal capacity, and opportunity cost.</p>
             </article>
             <article class="mf-question-card">
-              <h3 class="mf-question-card__title">Why Japan is on the table now</h3>
-              <p class="mf-question-card__body">Timing, internal priority, or a customer signal all change what the right next step looks like.</p>
+              <h3 class="mf-question-card__title">What should you validate before you commit?</h3>
+              <p class="mf-question-card__body">Demand, routes to market, partner options, and execution feasibility do not always need the same level of effort at the same stage.</p>
             </article>
             <article class="mf-question-card">
-              <h3 class="mf-question-card__title">What you want to clarify first</h3>
-              <p class="mf-question-card__body">It may be timing, demand, partner routes, operating support, or simply where to start.</p>
+              <h3 class="mf-question-card__title">When does a partner route make more sense?</h3>
+              <p class="mf-question-card__body">Direct sales, reseller discussions, and partnership exploration can look similar from a distance, but they require different assumptions and different preparation.</p>
             </article>
             <article class="mf-question-card">
-              <h3 class="mf-question-card__title">What support you think you may need</h3>
-              <p class="mf-question-card__body">A rough guess is enough. The first goal is clarity, not a locked scope.</p>
+              <h3 class="mf-question-card__title">What should not start yet?</h3>
+              <p class="mf-question-card__body">Hiring, incorporation, localised materials, or broad outreach can create avoidable cost if the first decision has not been made clearly.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- parts/section/contact-reasons.php -->
-      <section class="mf-reasons" id="reasons">
+      <!-- parts/section/services.php -->
+      <section class="mf-services" id="services">
         <div class="mf-container">
           <div class="mf-section-head">
-            <span class="mf-label">Typical reasons</span>
-            <h2 class="mf-page-title">Most enquiries start from one of these three situations.</h2>
-            <p class="mf-section-copy">This keeps the first conversation practical and helps frame whether you need a light review, deeper validation, or a more active cadence.</p>
+            <span class="mf-label">Two ways to start</span>
+            <h2 class="mf-page-title">Start with the level of support your current decision actually needs.</h2>
+            <p class="mf-section-copy">The goal is not to push the largest scope first. The goal is to help you move from uncertainty to a clearer next step.</p>
+          </div>
+          <div class="mf-card-list">
+            <article class="mf-service-card">
+              <div class="mf-service-card__head">
+                <span class="mf-service-card__tag">Best for early clarity</span>
+                <h3 class="mf-service-card__title">Japan Entry Snapshot</h3>
+                <p class="mf-service-card__lead">A structured review of your current situation, the main unknowns, and the questions that should be answered before a bigger move.</p>
+              </div>
+              <div class="mf-service-card__body">
+                <p class="mf-service-card__caption">Useful when you need to clarify</p>
+                <ul class="mf-bullet-list">
+                  <li class="mf-bullet-list__item">Your likely first objective in Japan</li>
+                  <li class="mf-bullet-list__item">The main risks of moving too early</li>
+                  <li class="mf-bullet-list__item">What deserves deeper validation first</li>
+                  <li class="mf-bullet-list__item">What can wait until later</li>
+                  <li class="mf-bullet-list__item">Whether broader execution support makes sense</li>
+                </ul>
+                <a class="mf-button-ghost" href="#contact">Discuss a Japan Entry Snapshot</a>
+              </div>
+            </article>
+            <article class="mf-service-card mf-service-card--featured">
+              <div class="mf-service-card__head">
+                <span class="mf-service-card__tag">Best for a bigger decision</span>
+                <h3 class="mf-service-card__title">Custom Market Validation Research</h3>
+                <p class="mf-service-card__lead">An in-depth validation project built around your specific product, market questions, and internal decision criteria.</p>
+              </div>
+              <div class="mf-service-card__body">
+                <p class="mf-service-card__caption">Useful when you need to review</p>
+                <ul class="mf-bullet-list">
+                  <li class="mf-bullet-list__item">Demand signals and demand constraints</li>
+                  <li class="mf-bullet-list__item">Routes to market and likely channel options</li>
+                  <li class="mf-bullet-list__item">Partner types worth assessing first</li>
+                  <li class="mf-bullet-list__item">Operational or regulatory barriers</li>
+                  <li class="mf-bullet-list__item">Practical options for the next move</li>
+                </ul>
+                <a class="mf-button-primary" href="#contact">Discuss market validation research</a>
+              </div>
+            </article>
+          </div>
+          <p class="mf-path-note">If active execution support becomes the right next step, we can discuss a more ongoing operating cadence after the initial decision is clearer.</p>
+        </div>
+      </section>
+
+      <!-- parts/section/approach.php -->
+      <section class="mf-approach" id="about">
+        <div class="mf-container">
+          <div class="mf-approach__content">
+            <div class="mf-section-head">
+              <span class="mf-label mf-label--light">How we think</span>
+              <h2 class="mf-page-title">We try to make early decisions clearer before making execution heavier.</h2>
+              <p class="mf-section-copy">Our work is designed for companies that want a practical first move, not inflated promises. We focus on sequence, scope, and transparency so the next step fits your real constraints.</p>
+            </div>
+            <div class="mf-pill-row" aria-label="Approach keywords">
+              <span class="mf-pill">Validate before scaling</span>
+              <span class="mf-pill">Low-hype communication</span>
+              <span class="mf-pill">Transparent judgment</span>
+              <span class="mf-pill">Realistic scope</span>
+            </div>
+            <div class="mf-approach-list">
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We show what we would validate before recommending a bigger move.</h3>
+                <p class="mf-approach-card__body">Trust is not only about track record. It also comes from making the decision logic visible, including what matters first and what may be premature.</p>
+              </article>
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We do not promise outcomes we cannot control.</h3>
+                <p class="mf-approach-card__body">Japan entry involves uncertainty. We can improve clarity, sequencing, and coordination, but we do not present uncertain outcomes as guaranteed results.</p>
+              </article>
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We work within your actual operating capacity.</h3>
+                <p class="mf-approach-card__body">Not every company should start with the same scope. Good planning reflects your team size, budget, timing, access, and decision needs.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/fit.php -->
+      <section class="mf-fit" id="who-we-work-with">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Fit</span>
+            <h2 class="mf-page-title">Who this tends to work well for.</h2>
+            <p class="mf-section-copy">This work suits companies that want to make a better first decision about Japan, with enough structure to move but without pretending every question is already solved.</p>
           </div>
           <div class="mf-fit-list">
             <article class="mf-fit-card mf-fit-card--yes">
-              <h3 class="mf-fit-card__title">Review whether Japan deserves priority now</h3>
+              <h3 class="mf-fit-card__title">Good fit</h3>
               <ul class="mf-fit-point-list">
-                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes"></span><span>You want to test whether Japan should move up the list now or later.</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You have a stable core business and some capacity to invest in exploration</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You want to validate before taking on heavier fixed cost</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You are open to discussing priorities, constraints, and internal decision criteria</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You want outside support to improve judgment, not replace it</span></li>
               </ul>
             </article>
-            <article class="mf-fit-card mf-fit-card--yes">
-              <h3 class="mf-fit-card__title">Validate before committing more resources</h3>
+            <article class="mf-fit-card mf-fit-card--no">
+              <h3 class="mf-fit-card__title">Probably not a fit</h3>
               <ul class="mf-fit-point-list">
-                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes"></span><span>You need clearer evidence before more localisation, hiring, or outreach starts.</span></li>
-              </ul>
-            </article>
-            <article class="mf-fit-card mf-fit-card--yes">
-              <h3 class="mf-fit-card__title">Add a clearer operating cadence</h3>
-              <ul class="mf-fit-point-list">
-                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes"></span><span>You already have activity in motion and need more structure around follow-through.</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You need guaranteed outcomes in a short timeframe</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You want immediate execution without clarifying the first decision</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You prefer not to share business context, constraints, or internal priorities</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You expect every request to become an active work item at once</span></li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- parts/section/contact-expect.php -->
-      <section class="mf-cta-band" id="what-happens-next">
+      <!-- parts/section/cta.php -->
+      <section class="mf-cta-band" id="next-step">
         <div class="mf-container">
-          <div class="mf-section-head">
-            <span class="mf-label">What happens next</span>
-            <h2 class="mf-page-title">After you reach out, the first exchange stays low pressure.</h2>
-            <p class="mf-section-copy">The goal is not to force a large scope. It is to work out the most sensible next step.</p>
-          </div>
-          <div class="mf-card-list">
-            <article class="mf-question-card">
-              <h3 class="mf-question-card__title">01. We review your message</h3>
-              <p class="mf-question-card__body">We look at the question you are trying to answer, not just the service name mentioned.</p>
-            </article>
-            <article class="mf-question-card">
-              <h3 class="mf-question-card__title">02. We suggest a short first conversation</h3>
-              <p class="mf-question-card__body">If there looks to be a potential fit, we suggest a short call to understand your current stage.</p>
-            </article>
-            <article class="mf-question-card">
-              <h3 class="mf-question-card__title">03. We clarify the likely path</h3>
-              <p class="mf-question-card__body">That may mean light orientation, deeper validation, a more active cadence, or simply a clearer decision sequence.</p>
-            </article>
+          <div class="mf-cta-band__box">
+            <span class="mf-label">Next step</span>
+            <h2 class="mf-page-title">Discuss your next step in Japan.</h2>
+            <p class="mf-section-copy">You do not need a finished plan before reaching out. A short conversation is often enough to see whether the next step is a Snapshot, deeper validation, or simply a clearer sequence for what to decide first.</p>
+            <div class="mf-cta-band__actions">
+              <a class="mf-button-primary" href="#contact">Send us a message</a>
+              <a class="mf-button-ghost" href="services_sp.html">Review service options</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- parts/section/contact-channels.php -->
-      <section class="mf-direct" id="direct-channels">
-        <div class="mf-container">
-          <div class="mf-section-head">
-            <span class="mf-label">Direct channels</span>
-            <h2 class="mf-page-title">Prefer a lighter first touch?</h2>
-            <p class="mf-section-copy">You can also reach us directly if a quick message feels easier than filling in the form.</p>
-          </div>
-          <div class="mf-card-list">
-            <a class="mf-channel-card" href="#" aria-label="Contact us on WhatsApp">
-              <span class="mf-channel-card__icon mf-channel-card__icon--whatsapp">
-                <svg fill="white" height="20" viewBox="0 0 24 24" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 00.921.921l5.583-1.471A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path></svg>
-              </span>
-              <span class="mf-channel-card__body">
-                <strong class="mf-channel-card__title">WhatsApp</strong>
-                <span class="mf-channel-card__text">Useful for a short direct enquiry.</span>
-              </span>
-            </a>
-            <a class="mf-channel-card" href="#" aria-label="Contact us on LINE">
-              <span class="mf-channel-card__icon mf-channel-card__icon--line">
-                <svg fill="white" height="20" viewBox="0 0 24 24" width="20"><path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v3.98h1.676a.49.49 0 010 .98zm1.673 0a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.49.49zm4.985 0a.49.49 0 01-.389-.19l-2.167-2.95v2.65a.49.49 0 01-.98 0V8.16a.49.49 0 01.877-.303l2.167 2.95V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.488.49zm2.772 0h-1.677a.49.49 0 01-.49-.49V8.16a.49.49 0 01.49-.49h1.677a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98z"></path></svg>
-              </span>
-              <span class="mf-channel-card__body">
-                <strong class="mf-channel-card__title">LINE</strong>
-                <span class="mf-channel-card__text">Useful if you prefer a lighter first touch.</span>
-              </span>
-            </a>
-            <a class="mf-channel-card" href="mailto:hello@dorado.com" aria-label="Send us an email">
-              <span class="mf-channel-card__icon mf-channel-card__icon--mail">
-                <svg fill="none" height="20" stroke="#1A1A2E" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="20"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="M2 7l10 7 10-7"></path></svg>
-              </span>
-              <span class="mf-channel-card__body">
-                <strong class="mf-channel-card__title">hello@dorado.com</strong>
-                <span class="mf-channel-card__text">Useful if you prefer to write directly by email.</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- parts/section/contact-form.php -->
-      <section class="mf-contact" id="contact-form">
+      <!-- parts/section/contact.php -->
+      <section class="mf-contact" id="contact">
         <div class="mf-container">
           <div class="mf-contact__content">
             <div class="mf-section-head">
-              <span class="mf-label mf-label--light">Contact form</span>
-              <h2 class="mf-page-title">Tell us what you are trying to decide.</h2>
-              <p class="mf-section-copy">A short message is enough. The goal of the first exchange is clarity, not a polished pitch.</p>
+              <span class="mf-label mf-label--light">Contact</span>
+              <h2 class="mf-page-title">Bring your current question, not a polished expansion plan.</h2>
+              <p class="mf-section-copy">We can discuss what is worth validating first and what can wait. Low-pressure conversations are fine. The point is clarity.</p>
             </div>
+            <ul class="mf-contact__list">
+              <li class="mf-contact__list-item">A short message is enough to start.</li>
+              <li class="mf-contact__list-item">Tell us where you are now and what you are trying to figure out next.</li>
+              <li class="mf-contact__list-item">The form is kept to one column for SP implementation stability.</li>
+            </ul>
             <div class="mf-contact-card">
-              <h3 class="mf-contact-card__title">Start with the essentials</h3>
-              <p class="mf-contact-card__lead">No large commitment required. We respond to serious enquiries.</p>
-              <form class="mf-form">
+              <p class="mf-contact-card__title">Send us a message</p>
+              <p class="mf-contact-card__lead">Tell us where you are now and what you are trying to figure out next.</p>
+              <form class="mf-form" action="#" method="post">
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="first-name">First name <span class="mf-form__required">*</span></label>
-                  <input class="mf-form__control" id="first-name" name="first-name" placeholder="e.g. James" type="text" />
+                  <label class="mf-form__label" for="mf-first-name">First name <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-first-name" name="first_name" type="text" placeholder="e.g. James" required />
                 </div>
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="last-name">Last name <span class="mf-form__required">*</span></label>
-                  <input class="mf-form__control" id="last-name" name="last-name" placeholder="e.g. Wilson" type="text" />
+                  <label class="mf-form__label" for="mf-last-name">Last name <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-last-name" name="last_name" type="text" placeholder="e.g. Wilson" required />
                 </div>
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="company">Company <span class="mf-form__required">*</span></label>
-                  <input class="mf-form__control" id="company" name="company" placeholder="Your company name" type="text" />
+                  <label class="mf-form__label" for="mf-company">Company <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-company" name="company" type="text" placeholder="Your company name" required />
                 </div>
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="email">Email <span class="mf-form__required">*</span></label>
-                  <input class="mf-form__control" id="email" name="email" placeholder="you@company.com" type="email" />
+                  <label class="mf-form__label" for="mf-email">Email <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-email" name="email" type="email" placeholder="you@company.com" required />
                 </div>
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="inquiry-type">What would you like to discuss?</label>
-                  <select class="mf-form__control" id="inquiry-type" name="inquiry-type">
-                    <option selected disabled value="">Select a topic</option>
+                  <label class="mf-form__label" for="mf-topic">What would you like to discuss? <span class="mf-form__required">*</span></label>
+                  <select class="mf-form__control" id="mf-topic" name="topic" required>
+                    <option value="" selected disabled>Select a topic</option>
                     <option>Japan Entry Snapshot</option>
                     <option>Custom Market Validation Research</option>
-                    <option>PartnerOps / SalesOps Cadence</option>
                     <option>General enquiry</option>
                     <option>Something else</option>
                   </select>
                 </div>
                 <div class="mf-form__group">
-                  <label class="mf-form__label" for="message">Message <span class="mf-form__required">*</span></label>
-                  <textarea class="mf-form__control mf-form__textarea" id="message" name="message" placeholder="A quick overview of your company, your current interest in Japan, and what you want to clarify first."></textarea>
+                  <label class="mf-form__label" for="mf-message">Message <span class="mf-form__required">*</span></label>
+                  <textarea class="mf-form__control mf-form__textarea" id="mf-message" name="message" placeholder="A quick overview of your company, your current interest in Japan, and what you want to clarify first." required></textarea>
                 </div>
                 <button class="mf-button-primary" type="submit">Send message</button>
-                <p class="mf-form__note">The first exchange is meant to be practical, clear, and low pressure.</p>
+                <p class="mf-form__note">No large commitment required. We respond to serious enquiries.</p>
               </form>
             </div>
           </div>
@@ -1363,29 +1327,29 @@
       <div class="mf-container">
         <div class="mf-footer__grid">
           <div class="mf-footer__brand">
-            <a class="mf-footer__logo" href="index.html">Dorado<span>.</span></a>
+            <a class="mf-footer__logo" href="index_sp.html">Dorado<span>.</span></a>
             <p class="mf-footer__copy">Practical support for early Japan-entry decisions, validation, and next-step planning.</p>
             
           </div>
           <div class="mf-footer__nav-group">
             <p class="mf-footer__heading">Company</p>
             <ul class="mf-footer__links">
-              <li><a class="mf-footer__link" href="about.html">About</a></li>
-              <li><a class="mf-footer__link" href="who-we-work-with.html">Who we work with</a></li>
+              <li><a class="mf-footer__link" href="about_sp.html">About</a></li>
+              <li><a class="mf-footer__link" href="who-we-work-with_sp.html">Who we work with</a></li>
             </ul>
           </div>
           <div class="mf-footer__nav-group">
             <p class="mf-footer__heading">Services &amp; resources</p>
             <ul class="mf-footer__links">
-              <li><a class="mf-footer__link" href="services.html">Services</a></li>
-              <li><a class="mf-footer__link" href="resources.html">Resources</a></li>
+              <li><a class="mf-footer__link" href="services_sp.html">Services</a></li>
+              <li><a class="mf-footer__link" href="resources_sp.html">Resources</a></li>
             </ul>
           </div>
           <div class="mf-footer__nav-group">
             <p class="mf-footer__heading">Get in touch</p>
             <ul class="mf-footer__links">
-              <li><a class="mf-footer__link" href="contact.html">Contact</a></li>
-              <li><a class="mf-footer__link" href="#contact-form">Send a message</a></li>
+              <li><a class="mf-footer__link" href="contact_sp.html">Contact</a></li>
+              <li><a class="mf-footer__link" href="#contact">Send a message</a></li>
             </ul>
             <div class="mf-social-row mf-social-row--footer-contact">
               <a class="mf-social-button mf-social-button--whatsapp" href="#" aria-label="WhatsApp">
@@ -1437,7 +1401,7 @@
     </footer>
   </div>
 
-  <div class="mf-wire-badge">Contact SP Wireframe</div>
+  <div class="mf-wire-badge">SP Wireframe</div>
 
   <script>
     (function () {
