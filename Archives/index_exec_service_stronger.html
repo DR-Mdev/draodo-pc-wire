@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Dorado - Home (Restructured Wireframe)</title>
+<title>Dorado - Home (Executive + Stronger Service)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
+
   :root {
     --grad-start: #84396B;
     --grad-end:   #2B0548;
@@ -170,7 +170,7 @@
     font-size: 17px;
     line-height: 1.68;
     color: rgba(255,255,255,0.74);
-    max-width: 560px;
+    max-width: 580px;
     margin-bottom: 34px;
   }
   .hero-ctas {
@@ -244,7 +244,7 @@
   }
 
   .section-header {
-    max-width: 720px;
+    max-width: 760px;
     margin-bottom: 52px;
   }
   .section-header.centered {
@@ -272,50 +272,38 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-  .question-card {
+  .question-card, .service-card, .proof-card, .short-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 12px;
+  }
+  .question-card {
     padding: 30px;
   }
-  .question-card h3 {
+  .question-card h3, .service-card h3, .proof-card h3, .short-card h3 {
     font-size: 21px;
     font-weight: 500;
     line-height: 1.35;
     color: var(--ink);
     margin-bottom: 12px;
   }
-  .question-card p {
+  .question-card p, .service-card p, .proof-card p, .short-card p {
     font-size: 15px;
     color: var(--ink-mid);
     line-height: 1.65;
   }
 
-  .path-section {
-    background: var(--surface);
-  }
-  .path-grid {
+  .service-section, .fit-section, .short-band { background: var(--surface); }
+  .service-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 26px;
   }
-  .path-card {
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--white);
+  .service-card {
+    padding: 30px;
   }
-  .path-card--featured { border-color: var(--main); }
-  .path-head {
-    padding: 28px 32px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  .path-card--featured .path-head {
-    background: var(--main-tint);
-    border-bottom-color: var(--main);
-  }
-  .path-tag {
+  .service-tag {
     display: inline-block;
     font-size: 11px;
     font-weight: 500;
@@ -327,38 +315,14 @@
     border-radius: 100px;
     margin-bottom: 14px;
   }
-  .path-head h3 {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  .path-head p {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.65;
-  }
-  .path-body {
-    padding: 28px 32px 32px;
-  }
-  .path-body-title {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 14px;
-  }
-  .path-list {
+  .service-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 26px;
+    margin: 18px 0 22px;
   }
-  .path-list li {
+  .service-list li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -366,7 +330,7 @@
     color: var(--ink-mid);
     line-height: 1.55;
   }
-  .path-list li::before {
+  .service-list li::before {
     content: '';
     width: 5px;
     height: 5px;
@@ -375,8 +339,10 @@
     margin-top: 9px;
     flex-shrink: 0;
   }
-  .path-cta {
-    display: block;
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     text-align: center;
     font-size: 14px;
@@ -387,12 +353,45 @@
     border-radius: 6px;
     text-decoration: none;
   }
-  .path-note {
-    max-width: 820px;
+  .service-note, .short-note {
+    max-width: 860px;
     margin: 0 auto;
     text-align: center;
     font-size: 14px;
     color: var(--ink-light);
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 28px;
+  }
+  .proof-card {
+    padding: 30px;
+  }
+  .proof-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .proof-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+  .proof-card li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 9px;
+    flex-shrink: 0;
   }
 
   .approach-section {
@@ -404,11 +403,11 @@
     gap: 80px;
     align-items: start;
   }
-  .approach-left h2 {
+  .approach-left h2, .cta-left h2 {
     color: var(--white);
     margin-bottom: 18px;
   }
-  .approach-left p {
+  .approach-left p, .cta-left p {
     font-size: 16px;
     color: rgba(255,255,255,0.7);
     line-height: 1.72;
@@ -450,7 +449,6 @@
     line-height: 1.62;
   }
 
-  .fit-section { background: var(--surface); }
   .fit-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -490,9 +488,7 @@
     align-items: center;
     justify-content: center;
   }
-  .fit-yes-mark {
-    background: var(--accent-tint);
-  }
+  .fit-yes-mark { background: var(--accent-tint); }
   .fit-yes-mark::after {
     content: '';
     width: 7px;
@@ -501,23 +497,15 @@
     border-bottom: 1.5px solid var(--accent);
     transform: rotate(-45deg) translateY(-1px);
   }
-  .fit-no-mark {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--ink-light);
-  }
-  .fit-no-mark::after {
-    content: '×';
-    font-size: 11px;
-    line-height: 1;
-  }
+  .fit-no-mark { background: var(--surface); border: 1px solid var(--border); color: var(--ink-light); }
+  .fit-no-mark::after { content: '×'; font-size: 11px; line-height: 1; }
 
-  .contact-section {
+  .cta-section {
     background: linear-gradient(140deg, var(--grad-start) 0%, var(--grad-end) 100%);
     position: relative;
     overflow: hidden;
   }
-  .contact-section::before {
+  .cta-section::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -525,30 +513,20 @@
       radial-gradient(circle at 90% 10%, rgba(108,127,196,0.22) 0%, transparent 50%),
       radial-gradient(circle at 5% 90%, rgba(14,116,144,0.15) 0%, transparent 50%);
   }
-  .contact-inner {
+  .cta-inner {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: start;
   }
-  .contact-left h2 {
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-  .contact-left p {
-    font-size: 16px;
-    color: rgba(255,255,255,0.68);
-    line-height: 1.7;
-    margin-bottom: 30px;
-  }
-  .contact-list {
+  .cta-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 14px;
   }
-  .contact-list li {
+  .cta-list li {
     font-size: 14px;
     color: rgba(255,255,255,0.78);
     line-height: 1.6;
@@ -588,9 +566,7 @@
     font-weight: 500;
     color: var(--ink-mid);
   }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
+  .form-group input, .form-group select, .form-group textarea {
     font-family: var(--font-body);
     font-size: 14px;
     color: var(--ink);
@@ -602,9 +578,7 @@
     resize: none;
     width: 100%;
   }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     border-color: var(--main);
     background: var(--white);
   }
@@ -629,33 +603,67 @@
     margin-top: 12px;
   }
 
+  .short-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 24px;
+  }
+  .short-card {
+    padding: 28px;
+  }
+  .short-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .short-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+  .short-card li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
   footer {
     background: var(--ink);
-    padding: 56px 0 40px;
+    padding: 54px 0 40px;
   }
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1fr;
     gap: 48px;
-    margin-bottom: 48px;
+    margin-bottom: 42px;
   }
   .footer-brand .nav-logo {
     color: var(--white);
-    display: block;
+    display: inline-block;
     margin-bottom: 14px;
   }
   .footer-brand .nav-logo span { color: rgba(255,255,255,0.5); }
   .footer-brand p {
     font-size: 14px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.42);
     line-height: 1.65;
+    max-width: 360px;
   }
   .footer-col h4 {
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.36);
     margin-bottom: 16px;
   }
   .footer-col ul {
@@ -664,55 +672,22 @@
     flex-direction: column;
     gap: 10px;
   }
-  .footer-col ul a {
+  .footer-col a {
     font-size: 14px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.58);
     text-decoration: none;
-    transition: color 0.2s;
   }
-  .footer-col ul a:hover { color: var(--white); }
-  .footer-msg-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-msg-link:hover { color: var(--white); }
-  .footer-socials {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 4px;
-    max-width: 100%;
-  }
-  .footer-socials a {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: opacity 0.2s;
-  }
-  .footer-socials a:hover { opacity: 0.8; }
-  .footer-socials svg {
-    display: block;
-  }
+  .footer-col a:hover { color: var(--white); }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 28px;
+    padding-top: 26px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   .footer-bottom p {
     font-size: 13px;
-    color: rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.3);
   }
 
   .wf-badge {
@@ -733,11 +708,13 @@
 
   @media (max-width: 980px) {
     .hero-inner,
+    .proof-grid,
     .approach-grid,
-    .contact-inner,
+    .cta-inner,
     .fit-grid,
-    .path-grid,
+    .service-grid,
     .question-grid,
+    .short-layout,
     .footer-grid {
       grid-template-columns: 1fr;
     }
@@ -748,9 +725,11 @@
     .form-row { grid-template-columns: 1fr; }
     .footer-bottom { flex-direction: column; gap: 10px; align-items: flex-start; }
   }
+
 </style>
 </head>
 <body>
+
 <nav>
   <div class="container">
     <div class="nav-inner">
@@ -771,32 +750,20 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="hero-eyebrow">For international SMEs considering Japan</p>
-        <h1>Before you hire, localise, or commit, clarify your first move in Japan.</h1>
-        <p class="hero-sub">Dorado helps growing companies decide what to validate first, where to focus, and what can wait, so Japan entry starts with better judgment rather than premature investment.</p>
+        <p class="hero-eyebrow">For founders and executives evaluating Japan</p>
+        <h1>Get clearer on your first move in Japan, then choose the right level of support.</h1>
+        <p class="hero-sub">Dorado helps international SMEs reduce early missteps in Japan entry through structured decision support, market validation, and ongoing operating support when the work needs to move beyond planning.</p>
         <div class="hero-ctas">
-          <a class="btn-primary" href="#questions">See what to validate first</a>
+          <a class="btn-primary" href="#services">See services</a>
           <a class="btn-ghost" href="#contact">Discuss your next step</a>
         </div>
       </div>
       <div class="hero-card">
-        <p class="hero-card-title">Questions worth answering first</p>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <p>Is Japan worth prioritising now, or later?</p>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <p>What should you validate before heavier investment?</p>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <p>When does a partner route make more sense than a direct move?</p>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <p>What should not start yet?</p>
-        </div>
+        <p class="hero-card-title">What executives usually need to decide first</p>
+        <div class="hero-card-item"><div class="hero-card-dot"></div><p>Is Japan worth prioritising now, or later?</p></div>
+        <div class="hero-card-item"><div class="hero-card-dot"></div><p>What should be validated before heavier investment?</p></div>
+        <div class="hero-card-item"><div class="hero-card-dot"></div><p>Which route fits better: direct, partner-led, or phased?</p></div>
+        <div class="hero-card-item"><div class="hero-card-dot"></div><p>What support is actually needed at this stage?</p></div>
       </div>
     </div>
   </div>
@@ -806,86 +773,116 @@
   <div class="container">
     <div class="section-header">
       <div class="label">What to clarify first</div>
-      <h2>Japan entry is not one decision. It is a sequence of decisions.</h2>
-      <p class="section-body">The early question is usually not whether Japan looks attractive. It is what needs to be clarified first so you can decide with less noise, less fixed cost, and a more realistic next step.</p>
+      <h2>Japan entry works better when the first decision is clear.</h2>
+      <p class="section-body">The early issue is rarely a lack of ambition. It is usually a lack of sequence: what to validate first, what to postpone, and what kind of support fits the decision in front of you.</p>
     </div>
     <div class="question-grid">
       <div class="question-card">
-        <h3>Is Japan worth prioritising now?</h3>
-        <p>For some companies, the right answer is not immediate expansion but a more disciplined review of timing, internal capacity, and opportunity cost.</p>
+        <h3>Should you validate demand, routes to market, or partner options first?</h3>
+        <p>Those questions often get mixed together. We help separate them so the next move reflects your real risk, timing, and internal capacity.</p>
       </div>
       <div class="question-card">
-        <h3>What should you validate before you commit?</h3>
-        <p>Demand, routes to market, partner options, and execution feasibility do not always need the same level of effort at the same stage.</p>
+        <h3>What would be premature right now?</h3>
+        <p>Hiring, incorporation, broad localisation, and scattered outreach can create unnecessary cost if the first objective is still unclear.</p>
       </div>
       <div class="question-card">
-        <h3>When does a partner route make more sense?</h3>
-        <p>Direct sales, reseller discussions, and partnership exploration can look similar from a distance, but they require different assumptions and different preparation.</p>
+        <h3>What deserves a small, structured first step?</h3>
+        <p>Some companies need an initial Snapshot. Others need deeper validation. Others need a cadence that supports real execution week by week.</p>
       </div>
       <div class="question-card">
-        <h3>What should not start yet?</h3>
-        <p>Hiring, incorporation, localised materials, or broad outreach can create avoidable cost if the first decision has not been made clearly.</p>
+        <h3>What should executive attention stay focused on?</h3>
+        <p>The aim is not to create more activity. It is to improve the quality of the next decision and the quality of what gets prioritised.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="path-section" id="services">
+<section class="service-section" id="services">
   <div class="container">
     <div class="section-header centered">
-      <div class="label">Two ways to start</div>
-      <h2>Start with the level of support your current decision actually needs.</h2>
-      <p class="section-body">The goal is not to push the largest scope first. The goal is to help you move from uncertainty to a clearer next step.</p>
+      <div class="label">Services</div>
+      <h2>Three ways to start, depending on the decision in front of you.</h2>
+      <p class="section-body">This version makes the available support more explicit, while keeping the entry point practical and low-pressure.</p>
     </div>
-    <div class="path-grid">
-      <div class="path-card">
-        <div class="path-head">
-          <div class="path-tag">Best for early clarity</div>
-          <h3>Japan Entry Snapshot</h3>
-          <p>A structured review of your current situation, the main unknowns, and the questions that should be answered before a bigger move.</p>
-        </div>
-        <div class="path-body">
-          <p class="path-body-title">Useful when you need to clarify</p>
-          <ul class="path-list">
-            <li>Your likely first objective in Japan</li>
-            <li>The main risks of moving too early</li>
-            <li>What deserves deeper validation first</li>
-            <li>What can wait until later</li>
-            <li>Whether broader execution support makes sense</li>
-          </ul>
-          <a class="path-cta" href="#contact">Discuss a Japan Entry Snapshot</a>
-        </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-tag">Best for early clarity</div>
+        <h3>Japan Entry Snapshot</h3>
+        <p>A structured review of your situation, the main unknowns, and what should be decided before a larger push.</p>
+        <ul class="service-list">
+          <li>Clarify the likely first objective</li>
+          <li>Identify the main risks of moving too early</li>
+          <li>See what deserves deeper validation</li>
+          <li>Decide what can wait</li>
+        </ul>
+        <a class="service-cta" href="#contact">Discuss a Snapshot</a>
       </div>
-      <div class="path-card path-card--featured">
-        <div class="path-head">
-          <div class="path-tag">Best for a bigger decision</div>
-          <h3>Custom Market Validation Research</h3>
-          <p>An in-depth validation project built around your specific product, market questions, and internal decision criteria.</p>
-        </div>
-        <div class="path-body">
-          <p class="path-body-title">Useful when you need to review</p>
-          <ul class="path-list">
-            <li>Demand signals and demand constraints</li>
-            <li>Routes to market and likely channel options</li>
-            <li>Partner types worth assessing first</li>
-            <li>Operational or regulatory barriers</li>
-            <li>Practical options for the next move</li>
-          </ul>
-          <a class="path-cta" href="#contact">Discuss market validation research</a>
-        </div>
+      <div class="service-card">
+        <div class="service-tag">Best for a bigger decision</div>
+        <h3>Custom Market Validation Research</h3>
+        <p>An in-depth validation project built around your product, market questions, and internal decision criteria.</p>
+        <ul class="service-list">
+          <li>Review demand signals and constraints</li>
+          <li>Assess likely routes to market</li>
+          <li>Map partner and channel options</li>
+          <li>Clarify next-step choices</li>
+        </ul>
+        <a class="service-cta" href="#contact">Discuss validation research</a>
+      </div>
+      <div class="service-card">
+        <div class="service-tag">Best for active execution</div>
+        <h3>PartnerOps / SalesOps Cadence</h3>
+        <p>Ongoing operating support for companies that already know the direction and now need structured movement across outreach, meetings, and follow-through.</p>
+        <ul class="service-list">
+          <li>Cadence-based progress and priorities</li>
+          <li>Support across execution work items</li>
+          <li>Visible blockers and next actions</li>
+          <li>A realistic operating rhythm</li>
+        </ul>
+        <a class="service-cta" href="#contact">Discuss ongoing support</a>
       </div>
     </div>
-    <p class="path-note">If active execution support becomes the right next step, we can discuss a more ongoing operating cadence after the initial decision is clearer.</p>
+    <p class="service-note">The point is not to sell the largest scope first. It is to match support to the stage you are actually in.</p>
   </div>
 </section>
 
-<section class="approach-section" id="about">
+<section>
+  <div class="container">
+    <div class="section-header centered">
+      <div class="label">What makes this credible</div>
+      <h2>We try to make the judgment visible, not hide it behind generic claims.</h2>
+      <p class="section-body">For executive readers, trust often comes less from adjectives and more from seeing what would be reviewed, in what order, and what would not be promised too early.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <h3>What we make visible</h3>
+        <ul>
+          <li>What would be validated before a bigger move</li>
+          <li>What is likely premature at the current stage</li>
+          <li>What support fits the current decision</li>
+          <li>What assumptions need to be tested rather than asserted</li>
+        </ul>
+      </div>
+      <div class="proof-card">
+        <h3>What we do not do</h3>
+        <ul>
+          <li>Present uncertain outcomes as guaranteed results</li>
+          <li>Push maximum scope before the first decision is clear</li>
+          <li>Treat localisation alone as a go-to-market strategy</li>
+          <li>Turn every request into an active priority at once</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach-section">
   <div class="container">
     <div class="approach-grid">
       <div class="approach-left">
-        <div class="label label--light">How we think</div>
-        <h2>We try to make early decisions clearer before making execution heavier.</h2>
-        <p>Our work is designed for companies that want a practical first move, not inflated promises. We focus on sequence, scope, and transparency so the next step fits your real constraints.</p>
+        <div class="label label--light">How we work</div>
+        <h2>Support should fit your real operating capacity.</h2>
+        <p>We design the next step around your team, budget, timing, and decision needs. Some companies need clarity first. Some need validation. Some need an execution cadence that keeps progress visible.</p>
         <div class="approach-pills">
           <span class="pill">Validate before scaling</span>
           <span class="pill">Low-hype communication</span>
@@ -895,87 +892,75 @@
       </div>
       <div class="approach-right">
         <div class="approach-point">
-          <h3>We show what we would validate before recommending a bigger move.</h3>
-          <p>Trust is not only about track record. It also comes from making the decision logic visible, including what matters first and what may be premature.</p>
+          <h3>We focus on sequence before volume.</h3>
+          <p>The first question is not how much activity can be started. It is what should happen first so later execution has a better foundation.</p>
         </div>
         <div class="approach-point">
           <h3>We do not promise outcomes we cannot control.</h3>
-          <p>Japan entry involves uncertainty. We can improve clarity, sequencing, and coordination, but we do not present uncertain outcomes as guaranteed results.</p>
+          <p>We can improve clarity, sequencing, and coordination. We do not package uncertainty as certainty.</p>
         </div>
         <div class="approach-point">
-          <h3>We work within your actual operating capacity.</h3>
-          <p>Not every company should start with the same scope. Good planning reflects your team size, budget, timing, access, and decision needs.</p>
+          <h3>We make it easier to choose the right service level.</h3>
+          <p>That means showing when a smaller starting scope is enough and when a broader scope is actually justified.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="fit-section" id="who-we-work-with">
+<section class="fit-section">
   <div class="container">
     <div class="section-header centered">
       <div class="label">Fit</div>
       <h2>Who this tends to work well for.</h2>
-      <p class="section-body">This work suits companies that want to make a better first decision about Japan, with enough structure to move but without pretending every question is already solved.</p>
+      <p class="section-body">This version stays executive-oriented, but makes the service paths clearer for companies that may already be comparing support options.</p>
     </div>
     <div class="fit-grid">
       <div class="fit-col fit-col--yes">
         <h3>Good fit</h3>
         <ul class="fit-list">
-          <li><span class="fit-yes-mark"></span>You have a stable core business and some capacity to invest in exploration</li>
-          <li><span class="fit-yes-mark"></span>You want to validate before taking on heavier fixed cost</li>
-          <li><span class="fit-yes-mark"></span>You are open to discussing priorities, constraints, and internal decision criteria</li>
-          <li><span class="fit-yes-mark"></span>You want outside support to improve judgment, not replace it</li>
+          <li><span class="fit-yes-mark"></span>You want to improve the quality of the next Japan-entry decision</li>
+          <li><span class="fit-yes-mark"></span>You are open to choosing a smaller or larger scope based on what is actually needed</li>
+          <li><span class="fit-yes-mark"></span>You want outside support to strengthen judgment and execution discipline</li>
+          <li><span class="fit-yes-mark"></span>You have enough internal capacity to act on what gets clarified</li>
         </ul>
       </div>
       <div class="fit-col fit-col--no">
         <h3>Probably not a fit</h3>
         <ul class="fit-list">
-          <li><span class="fit-no-mark"></span>You need guaranteed outcomes in a short timeframe</li>
-          <li><span class="fit-no-mark"></span>You want immediate execution without clarifying the first decision</li>
-          <li><span class="fit-no-mark"></span>You prefer not to share business context, constraints, or internal priorities</li>
-          <li><span class="fit-no-mark"></span>You expect every request to become an active work item at once</li>
+          <li><span class="fit-no-mark"></span>You need guaranteed commercial outcomes in a short timeframe</li>
+          <li><span class="fit-no-mark"></span>You want execution without first agreeing on the first objective</li>
+          <li><span class="fit-no-mark"></span>You prefer maximum scope immediately regardless of stage fit</li>
+          <li><span class="fit-no-mark"></span>You do not want to discuss constraints, trade-offs, or priorities</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="contact-section" id="contact">
+<section class="cta-section" id="contact">
   <div class="container">
-    <div class="contact-inner">
-      <div class="contact-left">
+    <div class="cta-inner">
+      <div class="cta-left">
         <div class="label label--light">Next step</div>
-        <h2>Discuss your next step in Japan.</h2>
-        <p>You do not need a finished plan before reaching out. A short conversation is often enough to see whether the next step is a Snapshot, deeper validation, or simply a clearer sequence for what to decide first.</p>
-        <ul class="contact-list">
-          <li>Bring your current question, not a polished expansion plan.</li>
-          <li>We can discuss what is worth validating first and what can wait.</li>
-          <li>Low-pressure conversations are fine. The point is clarity.</li>
+        <h2>Discuss the next decision, then decide the right scope.</h2>
+        <p>You do not need a finished expansion plan before reaching out. A short conversation is often enough to see whether the right next step is a Snapshot, deeper validation, or ongoing operating support.</p>
+        <ul class="cta-list">
+          <li>Bring your current question, not a polished internal memo.</li>
+          <li>We can discuss what should be validated first and what can wait.</li>
+          <li>The aim is a clearer next step, not a hard sell.</li>
         </ul>
       </div>
       <div class="contact-form-wrap">
         <p class="contact-form-title">Send us a message</p>
-        <p class="contact-form-sub">Tell us where you are now and what you are trying to figure out next.</p>
+        <p class="contact-form-sub">Tell us where you are now and what you want to clarify next.</p>
         <div class="form-row">
-          <div class="form-group" style="margin-bottom:0;">
-            <label>First name</label>
-            <input type="text" placeholder="e.g. James"/>
-          </div>
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Last name</label>
-            <input type="text" placeholder="e.g. Wilson"/>
-          </div>
+          <div class="form-group" style="margin-bottom:0;"><label>First name</label><input type="text" placeholder="e.g. James"/></div>
+          <div class="form-group" style="margin-bottom:0;"><label>Last name</label><input type="text" placeholder="e.g. Wilson"/></div>
         </div>
         <div class="form-row" style="margin-top:16px;">
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Company</label>
-            <input type="text" placeholder="Your company name"/>
-          </div>
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Email</label>
-            <input type="email" placeholder="you@company.com"/>
-          </div>
+          <div class="form-group" style="margin-bottom:0;"><label>Company</label><input type="text" placeholder="Your company name"/></div>
+          <div class="form-group" style="margin-bottom:0;"><label>Email</label><input type="email" placeholder="you@company.com"/></div>
         </div>
         <div class="form-group" style="margin-top:16px;">
           <label>What would you like to discuss?</label>
@@ -983,13 +968,13 @@
             <option selected disabled value="">Select a topic</option>
             <option>Japan Entry Snapshot</option>
             <option>Custom Market Validation Research</option>
-            <option>General enquiry</option>
+            <option>PartnerOps / SalesOps Cadence</option>
             <option>Something else</option>
           </select>
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea rows="4" placeholder="A quick overview of your company, your current interest in Japan, and what you want to clarify first."></textarea>
+          <textarea rows="4" placeholder="A quick overview of your company, your current interest in Japan, and the main question you want to resolve."></textarea>
         </div>
         <button class="form-submit">Send message</button>
         <p class="form-note">No large commitment required. We respond to serious enquiries.</p>
@@ -1006,48 +991,19 @@
         <p>Practical support for early Japan-entry decisions, validation, and next-step planning.</p>
       </div>
       <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#questions">What to validate first</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Next step</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="who-we-work-with.html">Who we work with</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services &amp; resources</h4>
-        <ul>
-          <li><a href="services.html">Services</a></li>
           <li><a href="resources.html">Resources</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Get in touch</h4>
-        <ul>
-          <li><a class="footer-msg-link" href="contact.html">Contact Us</a></li>
-          <li>
-            <div class="footer-socials">
-              <a href="#" title="WhatsApp" style="background:#25D366;">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 0 0 .921.921l5.583-1.471A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 0 1-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path></svg>
-              </a>
-              <a href="#" title="LINE" style="background:#06C755;">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 0 1-.49-.49V8.16a.49.49 0 0 1 .98 0v3.98h1.676a.49.49 0 0 1 0 .98zm1.673 0a.49.49 0 0 1-.49-.49V8.16a.49.49 0 0 1 .98 0v4.47a.49.49 0 0 1-.49.49zm4.985 0a.49.49 0 0 1-.389-.19l-2.167-2.95v2.65a.49.49 0 0 1-.98 0V8.16a.49.49 0 0 1 .877-.303l2.167 2.95V8.16a.49.49 0 0 1 .98 0v4.47a.49.49 0 0 1-.488.49zm2.772 0h-1.677a.49.49 0 0 1-.49-.49V8.16a.49.49 0 0 1 .49-.49h1.677a.49.49 0 0 1 0 .98h-1.187v.96h1.187a.49.49 0 0 1 0 .98h-1.187v.96h1.187a.49.49 0 0 1 0 .98z"></path></svg>
-              </a>
-              <a href="#" title="LinkedIn" style="background:#0A66C2;">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.208 24 24 23.227 24 22.271V1.729C24 .774 23.208 0 22.225 0z"></path></svg>
-              </a>
-              <a href="#" title="X" style="background:#000;">
-                <svg fill="white" height="11" viewBox="0 0 24 24" width="11" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 15.27h1.833L7.084 4.126H5.117z"></path></svg>
-              </a>
-              <a href="#" title="Instagram" style="background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
-              </a>
-              <a href="#" title="YouTube" style="background:#FF0000;">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-              </a>
-              <a href="#" title="Facebook" style="background:#1877F2;">
-                <svg fill="white" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-              </a>
-            </div>
-          </li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -1058,6 +1014,6 @@
   </div>
 </footer>
 
-<div class="wf-badge">Restructured Home</div>
+<div class="wf-badge">Exec + Service</div>
 </body>
 </html>
