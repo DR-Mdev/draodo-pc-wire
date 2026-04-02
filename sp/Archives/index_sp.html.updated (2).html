@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dorado - Home (SP Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mf-grad-start: #84396B;
+      --mf-grad-end: #2B0548;
+      --mf-main: #6C7FC4;
+      --mf-main-tint: #F2F4FD;
+      --mf-accent: #0E7490;
+      --mf-accent-tint: #DCF0F5;
+      --mf-surface: #F3F4F6;
+      --mf-white: #FFFFFF;
+      --mf-ink: #1A1A2E;
+      --mf-ink-mid: #4B4B6B;
+      --mf-ink-light: #7A7A9A;
+      --mf-border: #E2E4ED;
+      --mf-font-display: 'Syne', sans-serif;
+      --mf-font-body: 'DM Sans', system-ui, sans-serif;
+
+      --mf-bp-sp: 768px;
+      --mf-bp-tab: 1024px;
+
+      --mf-space-4: 4px;
+      --mf-space-8: 8px;
+      --mf-space-12: 12px;
+      --mf-space-16: 16px;
+      --mf-space-24: 24px;
+      --mf-space-32: 32px;
+      --mf-space-40: 40px;
+      --mf-space-48: 48px;
+      --mf-space-64: 64px;
+
+      --mf-shell-max: 430px;
+      --mf-header-h: 64px;
+      --mf-radius-sm: 8px;
+      --mf-radius-md: 12px;
+      --mf-radius-lg: 16px;
+      --mf-shadow: 0 8px 28px rgba(26, 26, 46, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--mf-ink);
+      background: var(--mf-surface);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.is-nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mf-page-shell {
+      width: 100%;
+      max-width: var(--mf-shell-max);
+      margin: 0 auto;
+      background: var(--mf-white);
+      min-height: 100%;
+      position: relative;
+    }
+
+    .mf-container {
+      padding-left: var(--mf-space-16);
+      padding-right: var(--mf-space-16);
+    }
+
+    .mf-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 var(--mf-space-12);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-label--light {
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .mf-page-title {
+      font-family: var(--mf-font-display);
+      font-size: clamp(24px, 7vw, 28px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .mf-section-copy {
+      font-size: 16px;
+      color: var(--mf-ink-mid);
+      line-height: 1.7;
+    }
+
+    .mf-button-primary,
+    .mf-button-secondary,
+    .mf-button-ghost,
+    .mf-header__toggle,
+    .mf-nav-panel__cta {
+      min-height: 44px;
+    }
+
+    .mf-button-primary,
+    .mf-button-secondary,
+    .mf-button-ghost,
+    .mf-nav-panel__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--mf-radius-sm);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .mf-button-primary {
+      color: var(--mf-white);
+      background: linear-gradient(135deg, var(--mf-grad-start), var(--mf-grad-end));
+      border: 1px solid transparent;
+    }
+
+    .mf-button-secondary {
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+      border: 1px solid transparent;
+    }
+
+    .mf-button-ghost {
+      color: var(--mf-ink);
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+    }
+
+    .mf-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--mf-border);
+    }
+
+    .mf-header__bar {
+      min-height: var(--mf-header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-header__logo {
+      font-family: var(--mf-font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--mf-grad-end);
+      text-decoration: none;
+    }
+
+    .mf-header__logo span {
+      color: var(--mf-grad-start);
+    }
+
+    .mf-header__toggle {
+      width: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--mf-border);
+      background: var(--mf-white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mf-header__toggle-bar,
+    .mf-header__toggle-bar::before,
+    .mf-header__toggle-bar::after {
+      width: 18px;
+      height: 2px;
+      background: var(--mf-ink);
+      border-radius: 999px;
+      display: block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      content: '';
+    }
+
+    .mf-header__toggle-bar {
+      position: relative;
+    }
+
+    .mf-header__toggle-bar::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+    }
+
+    .mf-header__toggle-bar::after {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar {
+      background: transparent;
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .mf-nav-panel {
+      position: absolute;
+      top: calc(var(--mf-header-h) + 1px);
+      left: 0;
+      right: 0;
+      padding: 0 var(--mf-space-16) var(--mf-space-16);
+      display: none;
+    }
+
+    .mf-nav-panel.is-open {
+      display: block;
+    }
+
+    .mf-nav-panel__box {
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-lg);
+      box-shadow: var(--mf-shadow);
+      overflow: hidden;
+    }
+
+    .mf-nav-panel__list {
+      list-style: none;
+    }
+
+    .mf-nav-panel__item + .mf-nav-panel__item {
+      border-top: 1px solid var(--mf-border);
+    }
+
+    .mf-nav-panel__link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--mf-space-12);
+      min-height: 52px;
+      padding: 12px var(--mf-space-16);
+      text-decoration: none;
+      color: var(--mf-ink);
+      font-size: 15px;
+    }
+
+    .mf-nav-panel__footer {
+      padding: var(--mf-space-16);
+      border-top: 1px solid var(--mf-border);
+      background: var(--mf-surface);
+    }
+
+    .mf-nav-panel__cta {
+      color: var(--mf-white);
+      background: linear-gradient(135deg, var(--mf-grad-start), var(--mf-grad-end));
+    }
+
+    .mf-main > section {
+      padding-top: var(--mf-space-48);
+      padding-bottom: var(--mf-space-48);
+    }
+
+    .mf-main > section + section {
+      border-top: 1px solid var(--mf-border);
+    }
+
+    .mf-hero {
+      padding-top: var(--mf-space-24);
+      padding-bottom: var(--mf-space-48);
+      background: linear-gradient(140deg, var(--mf-grad-start) 0%, var(--mf-grad-end) 100%);
+      color: var(--mf-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mf-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 85% 16%, rgba(108, 127, 196, 0.24) 0%, transparent 52%),
+        radial-gradient(circle at 14% 86%, rgba(14, 116, 144, 0.18) 0%, transparent 46%);
+      pointer-events: none;
+    }
+
+    .mf-hero__content {
+      position: relative;
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-hero__eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .mf-hero__title {
+      font-family: var(--mf-font-display);
+      font-size: clamp(28px, 8vw, 32px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .mf-hero__body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .mf-hero__actions {
+      display: grid;
+      gap: var(--mf-space-12);
+      margin-top: var(--mf-space-8);
+    }
+
+    .mf-hero__support {
+      margin-top: var(--mf-space-8);
+      padding: var(--mf-space-24);
+      border-radius: var(--mf-radius-lg);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .mf-hero__support-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-check-list {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-check-list__item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: var(--mf-space-12);
+      align-items: start;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .mf-check-list__item + .mf-check-list__item {
+      padding-top: var(--mf-space-12);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mf-check-list__dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .mf-check-list__dot::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+      background: var(--mf-accent);
+    }
+
+    .mf-section-head {
+      display: grid;
+      gap: var(--mf-space-16);
+      margin-bottom: var(--mf-space-24);
+    }
+
+    .mf-card-list {
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-question-card,
+    .mf-service-card,
+    .mf-approach-card,
+    .mf-fit-card,
+    .mf-contact-card {
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-lg);
+    }
+
+    .mf-question-card {
+      padding: var(--mf-space-24);
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.04);
+    }
+
+    .mf-question-card__title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: var(--mf-space-12);
+      color: var(--mf-ink);
+    }
+
+    .mf-question-card__body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-services {
+      background: var(--mf-surface);
+    }
+
+    .mf-service-card {
+      overflow: hidden;
+    }
+
+    .mf-service-card--featured {
+      border-color: var(--mf-main);
+    }
+
+    .mf-service-card__head {
+      padding: var(--mf-space-24);
+      border-bottom: 1px solid var(--mf-border);
+      background: var(--mf-white);
+    }
+
+    .mf-service-card--featured .mf-service-card__head {
+      background: var(--mf-main-tint);
+      border-bottom-color: var(--mf-main);
+    }
+
+    .mf-service-card__tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-service-card__title {
+      font-family: var(--mf-font-display);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--mf-ink);
+      margin-bottom: var(--mf-space-8);
+    }
+
+    .mf-service-card__lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-service-card__body {
+      padding: var(--mf-space-24);
+    }
+
+    .mf-service-card__caption {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mf-ink-light);
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-bullet-list {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-12);
+      margin-bottom: var(--mf-space-24);
+    }
+
+    .mf-bullet-list__item {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: var(--mf-space-12);
+      align-items: start;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-bullet-list__item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mf-accent);
+      margin-top: 9px;
+      justify-self: center;
+    }
+
+    .mf-path-note {
+      margin-top: var(--mf-space-24);
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--mf-ink-light);
+      text-align: left;
+    }
+
+    .mf-approach {
+      background: linear-gradient(140deg, var(--mf-grad-start) 0%, var(--mf-grad-end) 100%);
+      color: var(--mf-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mf-approach::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 84% 18%, rgba(108, 127, 196, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 12% 84%, rgba(14, 116, 144, 0.16) 0%, transparent 48%);
+      pointer-events: none;
+    }
+
+    .mf-approach__content {
+      position: relative;
+    }
+
+    .mf-approach .mf-section-copy,
+    .mf-approach .mf-page-title {
+      color: var(--mf-white);
+    }
+
+    .mf-approach .mf-section-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .mf-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 var(--mf-space-12);
+      border-radius: 999px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mf-approach-list {
+      display: grid;
+      gap: var(--mf-space-16);
+      margin-top: var(--mf-space-24);
+    }
+
+    .mf-approach-card {
+      padding: var(--mf-space-24);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .mf-approach-card__title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--mf-white);
+      line-height: 1.5;
+      margin-bottom: var(--mf-space-8);
+    }
+
+    .mf-approach-card__body {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.66);
+      line-height: 1.6;
+    }
+
+    .mf-fit {
+      background: var(--mf-white);
+    }
+
+    .mf-fit-list {
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-fit-card {
+      padding: var(--mf-space-24);
+    }
+
+    .mf-fit-card--yes {
+      border-color: var(--mf-accent);
+      background: linear-gradient(180deg, rgba(220, 240, 245, 0.55), #ffffff 100%);
+    }
+
+    .mf-fit-card--no {
+      background: var(--mf-surface);
+    }
+
+    .mf-fit-card__title {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: var(--mf-space-16);
+      padding-bottom: var(--mf-space-12);
+      border-bottom: 2px solid var(--mf-border);
+    }
+
+    .mf-fit-card--yes .mf-fit-card__title {
+      color: var(--mf-accent);
+      border-bottom-color: var(--mf-accent);
+    }
+
+    .mf-fit-card--no .mf-fit-card__title {
+      color: var(--mf-ink-light);
+    }
+
+    .mf-fit-point-list {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-fit-point-list__item {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: var(--mf-space-12);
+      align-items: start;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-fit-point-list__mark {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .mf-fit-point-list__mark--yes {
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-fit-point-list__mark--yes::after {
+      content: '';
+      width: 7px;
+      height: 4px;
+      border-left: 1.5px solid var(--mf-accent);
+      border-bottom: 1.5px solid var(--mf-accent);
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    .mf-fit-point-list__mark--no {
+      border: 1px solid var(--mf-border);
+      background: var(--mf-white);
+      color: var(--mf-ink-light);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .mf-fit-point-list__mark--no::after {
+      content: '×';
+    }
+
+    .mf-cta-band {
+      background: var(--mf-surface);
+    }
+
+    .mf-cta-band__box {
+      padding: var(--mf-space-32) var(--mf-space-24);
+      border-radius: var(--mf-radius-lg);
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.04);
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-cta-band__actions {
+      display: grid;
+      gap: var(--mf-space-12);
+      margin-top: var(--mf-space-8);
+    }
+
+    .mf-contact {
+      background: linear-gradient(140deg, var(--mf-grad-start) 0%, var(--mf-grad-end) 100%);
+      color: var(--mf-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mf-contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 88% 14%, rgba(108, 127, 196, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 10% 88%, rgba(14, 116, 144, 0.15) 0%, transparent 48%);
+      pointer-events: none;
+    }
+
+    .mf-contact__content {
+      position: relative;
+      display: grid;
+      gap: var(--mf-space-24);
+    }
+
+    .mf-contact__list {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-contact__list-item {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .mf-contact-card {
+      padding: var(--mf-space-24);
+      color: var(--mf-ink);
+      box-shadow: var(--mf-shadow);
+    }
+
+    .mf-contact-card__title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: var(--mf-space-4);
+      color: var(--mf-ink);
+    }
+
+    .mf-contact-card__lead {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--mf-ink-light);
+      margin-bottom: var(--mf-space-24);
+    }
+
+    .mf-form {
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-form__group {
+      display: grid;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-form__label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-form__required {
+      color: var(--mf-grad-start);
+    }
+
+    .mf-form__control {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-sm);
+      background: var(--mf-surface);
+      padding: 11px 14px;
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      color: var(--mf-ink);
+      outline: none;
+    }
+
+    .mf-form__control:focus {
+      border-color: var(--mf-main);
+      background: var(--mf-white);
+    }
+
+    .mf-form__textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    .mf-form__note {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--mf-ink-light);
+      text-align: center;
+    }
+
+    .mf-footer {
+      background: var(--mf-ink);
+      color: rgba(255, 255, 255, 0.72);
+      padding-top: var(--mf-space-40);
+      padding-bottom: var(--mf-space-32);
+    }
+
+    .mf-footer__grid {
+      display: grid;
+      gap: var(--mf-space-24);
+    }
+
+    .mf-footer__brand {
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-footer__logo {
+      font-family: var(--mf-font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      color: var(--mf-white);
+    }
+
+    .mf-footer__logo span {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mf-footer__copy {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.44);
+    }
+
+
+    .mf-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: var(--mf-space-24);
+      padding-top: var(--mf-space-24);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mf-social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .mf-social-button:hover,
+    .mf-social-button:focus-visible {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .mf-social-button:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.7);
+      outline-offset: 2px;
+    }
+
+    .mf-social-button svg {
+      display: block;
+    }
+
+    .mf-social-button--whatsapp {
+      background: #25D366;
+    }
+
+    .mf-social-button--line {
+      background: #06C755;
+    }
+
+    .mf-social-button--linkedin {
+      background: #0A66C2;
+    }
+
+    .mf-social-button--x {
+      background: #000000;
+    }
+
+    .mf-social-button--instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 6%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .mf-social-button--youtube {
+      background: #FF0000;
+    }
+
+    .mf-social-button--facebook {
+      background: #1877F2;
+    }
+
+    .mf-footer__nav-group {
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-footer__heading {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .mf-footer__links {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-footer__link {
+      font-size: 14px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .mf-footer__bottom {
+      margin-top: var(--mf-space-24);
+      padding-top: var(--mf-space-24);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: var(--mf-space-8);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mf-wire-badge {
+      position: fixed;
+      right: var(--mf-space-16);
+      bottom: var(--mf-space-16);
+      z-index: 110;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 var(--mf-space-12);
+      border-radius: 999px;
+      background: var(--mf-grad-end);
+      color: var(--mf-white);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    @media (min-width: 769px) {
+      body {
+        padding: var(--mf-space-24);
+      }
+
+      .mf-page-shell {
+        border: 1px solid var(--mf-border);
+        border-radius: 24px;
+        overflow: clip;
+        box-shadow: 0 20px 60px rgba(26, 26, 46, 0.12);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mf-page-shell">
+    <header class="mf-header">
+      <div class="mf-container">
+        <div class="mf-header__bar">
+          <a class="mf-header__logo" href="index.html">Dorado<span>.</span></a>
+          <button class="mf-header__toggle js-nav-toggle" type="button" aria-expanded="false" aria-controls="mf-mobile-nav" aria-label="Open navigation">
+            <span class="mf-header__toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mf-nav-panel" id="mf-mobile-nav" aria-label="Mobile navigation">
+        <div class="mf-nav-panel__box">
+          <ul class="mf-nav-panel__list">
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="who-we-work-with.html">Who we work with</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="services.html">Services</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="resources.html">Resources</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="about.html">About</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mf-nav-panel__footer">
+            <a class="mf-nav-panel__cta" href="#contact">Discuss your next step</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mf-main">
+      <!-- parts/section/hero.php -->
+      <section class="mf-hero" id="top">
+        <div class="mf-container">
+          <div class="mf-hero__content">
+            <p class="mf-hero__eyebrow">For international SMEs considering Japan</p>
+            <h1 class="mf-hero__title">Before you hire, localise, or commit, clarify your first move in Japan.</h1>
+            <p class="mf-hero__body">Dorado helps growing companies decide what to validate first, where to focus, and what can wait, so Japan entry starts with better judgment rather than premature investment.</p>
+            <div class="mf-hero__actions">
+              <a class="mf-button-primary" href="#questions">See what to validate first</a>
+              <a class="mf-button-secondary" href="#contact">Discuss your next step</a>
+            </div>
+            <div class="mf-hero__support">
+              <p class="mf-hero__support-title">Questions worth answering first</p>
+              <ul class="mf-check-list">
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>Is Japan worth prioritising now, or later?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>What should you validate before heavier investment?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>When does a partner route make more sense than a direct move?</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot" aria-hidden="true"></span><span>What should not start yet?</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/questions.php -->
+      <section class="mf-questions" id="questions">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">What to clarify first</span>
+            <h2 class="mf-page-title">Japan entry is not one decision. It is a sequence of decisions.</h2>
+            <p class="mf-section-copy">The early question is usually not whether Japan looks attractive. It is what needs to be clarified first so you can decide with less noise, less fixed cost, and a more realistic next step.</p>
+          </div>
+          <div class="mf-card-list">
+            <article class="mf-question-card">
+              <h3 class="mf-question-card__title">Is Japan worth prioritising now?</h3>
+              <p class="mf-question-card__body">For some companies, the right answer is not immediate expansion but a more disciplined review of timing, internal capacity, and opportunity cost.</p>
+            </article>
+            <article class="mf-question-card">
+              <h3 class="mf-question-card__title">What should you validate before you commit?</h3>
+              <p class="mf-question-card__body">Demand, routes to market, partner options, and execution feasibility do not always need the same level of effort at the same stage.</p>
+            </article>
+            <article class="mf-question-card">
+              <h3 class="mf-question-card__title">When does a partner route make more sense?</h3>
+              <p class="mf-question-card__body">Direct sales, reseller discussions, and partnership exploration can look similar from a distance, but they require different assumptions and different preparation.</p>
+            </article>
+            <article class="mf-question-card">
+              <h3 class="mf-question-card__title">What should not start yet?</h3>
+              <p class="mf-question-card__body">Hiring, incorporation, localised materials, or broad outreach can create avoidable cost if the first decision has not been made clearly.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/services.php -->
+      <section class="mf-services" id="services">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Two ways to start</span>
+            <h2 class="mf-page-title">Start with the level of support your current decision actually needs.</h2>
+            <p class="mf-section-copy">The goal is not to push the largest scope first. The goal is to help you move from uncertainty to a clearer next step.</p>
+          </div>
+          <div class="mf-card-list">
+            <article class="mf-service-card">
+              <div class="mf-service-card__head">
+                <span class="mf-service-card__tag">Best for early clarity</span>
+                <h3 class="mf-service-card__title">Japan Entry Snapshot</h3>
+                <p class="mf-service-card__lead">A structured review of your current situation, the main unknowns, and the questions that should be answered before a bigger move.</p>
+              </div>
+              <div class="mf-service-card__body">
+                <p class="mf-service-card__caption">Useful when you need to clarify</p>
+                <ul class="mf-bullet-list">
+                  <li class="mf-bullet-list__item">Your likely first objective in Japan</li>
+                  <li class="mf-bullet-list__item">The main risks of moving too early</li>
+                  <li class="mf-bullet-list__item">What deserves deeper validation first</li>
+                  <li class="mf-bullet-list__item">What can wait until later</li>
+                  <li class="mf-bullet-list__item">Whether broader execution support makes sense</li>
+                </ul>
+                <a class="mf-button-ghost" href="#contact">Discuss a Japan Entry Snapshot</a>
+              </div>
+            </article>
+            <article class="mf-service-card mf-service-card--featured">
+              <div class="mf-service-card__head">
+                <span class="mf-service-card__tag">Best for a bigger decision</span>
+                <h3 class="mf-service-card__title">Custom Market Validation Research</h3>
+                <p class="mf-service-card__lead">An in-depth validation project built around your specific product, market questions, and internal decision criteria.</p>
+              </div>
+              <div class="mf-service-card__body">
+                <p class="mf-service-card__caption">Useful when you need to review</p>
+                <ul class="mf-bullet-list">
+                  <li class="mf-bullet-list__item">Demand signals and demand constraints</li>
+                  <li class="mf-bullet-list__item">Routes to market and likely channel options</li>
+                  <li class="mf-bullet-list__item">Partner types worth assessing first</li>
+                  <li class="mf-bullet-list__item">Operational or regulatory barriers</li>
+                  <li class="mf-bullet-list__item">Practical options for the next move</li>
+                </ul>
+                <a class="mf-button-primary" href="#contact">Discuss market validation research</a>
+              </div>
+            </article>
+          </div>
+          <p class="mf-path-note">If active execution support becomes the right next step, we can discuss a more ongoing operating cadence after the initial decision is clearer.</p>
+        </div>
+      </section>
+
+      <!-- parts/section/approach.php -->
+      <section class="mf-approach" id="about">
+        <div class="mf-container">
+          <div class="mf-approach__content">
+            <div class="mf-section-head">
+              <span class="mf-label mf-label--light">How we think</span>
+              <h2 class="mf-page-title">We try to make early decisions clearer before making execution heavier.</h2>
+              <p class="mf-section-copy">Our work is designed for companies that want a practical first move, not inflated promises. We focus on sequence, scope, and transparency so the next step fits your real constraints.</p>
+            </div>
+            <div class="mf-pill-row" aria-label="Approach keywords">
+              <span class="mf-pill">Validate before scaling</span>
+              <span class="mf-pill">Low-hype communication</span>
+              <span class="mf-pill">Transparent judgment</span>
+              <span class="mf-pill">Realistic scope</span>
+            </div>
+            <div class="mf-approach-list">
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We show what we would validate before recommending a bigger move.</h3>
+                <p class="mf-approach-card__body">Trust is not only about track record. It also comes from making the decision logic visible, including what matters first and what may be premature.</p>
+              </article>
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We do not promise outcomes we cannot control.</h3>
+                <p class="mf-approach-card__body">Japan entry involves uncertainty. We can improve clarity, sequencing, and coordination, but we do not present uncertain outcomes as guaranteed results.</p>
+              </article>
+              <article class="mf-approach-card">
+                <h3 class="mf-approach-card__title">We work within your actual operating capacity.</h3>
+                <p class="mf-approach-card__body">Not every company should start with the same scope. Good planning reflects your team size, budget, timing, access, and decision needs.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/fit.php -->
+      <section class="mf-fit" id="who-we-work-with">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Fit</span>
+            <h2 class="mf-page-title">Who this tends to work well for.</h2>
+            <p class="mf-section-copy">This work suits companies that want to make a better first decision about Japan, with enough structure to move but without pretending every question is already solved.</p>
+          </div>
+          <div class="mf-fit-list">
+            <article class="mf-fit-card mf-fit-card--yes">
+              <h3 class="mf-fit-card__title">Good fit</h3>
+              <ul class="mf-fit-point-list">
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You have a stable core business and some capacity to invest in exploration</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You want to validate before taking on heavier fixed cost</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You are open to discussing priorities, constraints, and internal decision criteria</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--yes" aria-hidden="true"></span><span>You want outside support to improve judgment, not replace it</span></li>
+              </ul>
+            </article>
+            <article class="mf-fit-card mf-fit-card--no">
+              <h3 class="mf-fit-card__title">Probably not a fit</h3>
+              <ul class="mf-fit-point-list">
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You need guaranteed outcomes in a short timeframe</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You want immediate execution without clarifying the first decision</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You prefer not to share business context, constraints, or internal priorities</span></li>
+                <li class="mf-fit-point-list__item"><span class="mf-fit-point-list__mark mf-fit-point-list__mark--no" aria-hidden="true"></span><span>You expect every request to become an active work item at once</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/cta.php -->
+      <section class="mf-cta-band" id="next-step">
+        <div class="mf-container">
+          <div class="mf-cta-band__box">
+            <span class="mf-label">Next step</span>
+            <h2 class="mf-page-title">Discuss your next step in Japan.</h2>
+            <p class="mf-section-copy">You do not need a finished plan before reaching out. A short conversation is often enough to see whether the next step is a Snapshot, deeper validation, or simply a clearer sequence for what to decide first.</p>
+            <div class="mf-cta-band__actions">
+              <a class="mf-button-primary" href="#contact">Send us a message</a>
+              <a class="mf-button-ghost" href="services.html">Review service options</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- parts/section/contact.php -->
+      <section class="mf-contact" id="contact">
+        <div class="mf-container">
+          <div class="mf-contact__content">
+            <div class="mf-section-head">
+              <span class="mf-label mf-label--light">Contact</span>
+              <h2 class="mf-page-title">Bring your current question, not a polished expansion plan.</h2>
+              <p class="mf-section-copy">We can discuss what is worth validating first and what can wait. Low-pressure conversations are fine. The point is clarity.</p>
+            </div>
+            <ul class="mf-contact__list">
+              <li class="mf-contact__list-item">A short message is enough to start.</li>
+              <li class="mf-contact__list-item">Tell us where you are now and what you are trying to figure out next.</li>
+              <li class="mf-contact__list-item">The form is kept to one column for SP implementation stability.</li>
+            </ul>
+            <div class="mf-contact-card">
+              <p class="mf-contact-card__title">Send us a message</p>
+              <p class="mf-contact-card__lead">Tell us where you are now and what you are trying to figure out next.</p>
+              <form class="mf-form" action="#" method="post">
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-first-name">First name <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-first-name" name="first_name" type="text" placeholder="e.g. James" required />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-last-name">Last name <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-last-name" name="last_name" type="text" placeholder="e.g. Wilson" required />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-company">Company <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-company" name="company" type="text" placeholder="Your company name" required />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-email">Email <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="mf-email" name="email" type="email" placeholder="you@company.com" required />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-topic">What would you like to discuss? <span class="mf-form__required">*</span></label>
+                  <select class="mf-form__control" id="mf-topic" name="topic" required>
+                    <option value="" selected disabled>Select a topic</option>
+                    <option>Japan Entry Snapshot</option>
+                    <option>Custom Market Validation Research</option>
+                    <option>General enquiry</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="mf-message">Message <span class="mf-form__required">*</span></label>
+                  <textarea class="mf-form__control mf-form__textarea" id="mf-message" name="message" placeholder="A quick overview of your company, your current interest in Japan, and what you want to clarify first." required></textarea>
+                </div>
+                <button class="mf-button-primary" type="submit">Send message</button>
+                <p class="mf-form__note">No large commitment required. We respond to serious enquiries.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mf-footer">
+      <div class="mf-container">
+        <div class="mf-footer__grid">
+          <div class="mf-footer__brand">
+            <a class="mf-footer__logo" href="index.html">Dorado<span>.</span></a>
+            <p class="mf-footer__copy">Practical support for early Japan-entry decisions, validation, and next-step planning.</p>
+            <div class="mf-social-row">
+              <a class="mf-social-button mf-social-button--whatsapp" href="#" aria-label="WhatsApp">
+                <svg fill="white" height="18" viewBox="0 0 24 24" width="18">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 00.921.921l5.583-1.471A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--line" href="#" aria-label="LINE">
+                <svg fill="white" height="18" viewBox="0 0 24 24" width="18">
+                  <path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v3.98h1.676a.49.49 0 010 .98zm1.673 0a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.49.49zm4.985 0a.49.49 0 01-.389-.19l-2.167-2.95v2.65a.49.49 0 01-.98 0V8.16a.49.49 0 01.877-.303l2.167 2.95V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.488.49zm2.772 0h-1.677a.49.49 0 01-.49-.49V8.16a.49.49 0 01.49-.49h1.677a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98z"></path>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--linkedin" href="#" aria-label="LinkedIn">
+                <svg fill="white" height="18" viewBox="0 0 24 24" width="18">
+                  <path d="M4.98 3.5a2.49 2.49 0 1 0 0 4.98 2.49 2.49 0 0 0 0-4.98zM3 9h4v12H3zM9 9h3.83v1.64h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.57c0-1.33-.02-3.05-1.86-3.05-1.87 0-2.15 1.46-2.15 2.95V21H9z"></path>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--x" href="#" aria-label="X">
+                <svg fill="white" height="16" viewBox="0 0 24 24" width="16">
+                  <path d="M18.9 2H22l-6.77 7.74L23 22h-6.05l-4.74-6.73L6.32 22H3.2l7.24-8.28L1 2h6.2l4.29 6.12L18.9 2z"></path>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--instagram" href="#" aria-label="Instagram">
+                <svg fill="none" height="18" viewBox="0 0 24 24" width="18">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="white" stroke-width="2"></rect>
+                  <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="white"></circle>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--youtube" href="#" aria-label="YouTube">
+                <svg fill="white" height="16" viewBox="0 0 24 24" width="16">
+                  <path d="M23.5 6.2a3.03 3.03 0 0 0-2.13-2.15C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.03 3.03 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3.03 3.03 0 0 0 2.13 2.15c1.87.55 9.37.55 9.37.55s7.5 0 9.37-.55a3.03 3.03 0 0 0 2.13-2.15A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.24 3.6-6.24 3.6z"></path>
+                </svg>
+              </a>
+              <a class="mf-social-button mf-social-button--facebook" href="#" aria-label="Facebook">
+                <svg fill="white" height="18" viewBox="0 0 24 24" width="18">
+                  <path d="M13.5 21v-7h2.35l.35-2.8H13.5V9.41c0-.81.22-1.36 1.38-1.36h1.47V5.56c-.25-.03-1.12-.11-2.12-.11-2.1 0-3.53 1.28-3.53 3.64v2.11H8.33V14h2.37v7h2.8z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Company</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="about.html">About</a></li>
+              <li><a class="mf-footer__link" href="who-we-work-with.html">Who we work with</a></li>
+            </ul>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Services &amp; resources</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="services.html">Services</a></li>
+              <li><a class="mf-footer__link" href="resources.html">Resources</a></li>
+            </ul>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Get in touch</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="contact.html">Contact</a></li>
+              <li><a class="mf-footer__link" href="#contact">Send a message</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mf-footer__bottom">
+          <p>© 2026 Dorado. All rights reserved.</p>
+          <p>Privacy Policy</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="mf-wire-badge">SP Wireframe</div>
+
+  <script>
+    (function () {
+      var toggleButton = document.querySelector('.js-nav-toggle');
+      var navPanel = document.getElementById('mf-mobile-nav');
+
+      if (!toggleButton || !navPanel) {
+        return;
+      }
+
+      function openNav() {
+        toggleButton.setAttribute('aria-expanded', 'true');
+        toggleButton.setAttribute('aria-label', 'Close navigation');
+        navPanel.classList.add('is-open');
+        document.body.classList.add('is-nav-open');
+      }
+
+      function closeNav() {
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-label', 'Open navigation');
+        navPanel.classList.remove('is-open');
+        document.body.classList.remove('is-nav-open');
+      }
+
+      function toggleNav() {
+        if (toggleButton.getAttribute('aria-expanded') === 'true') {
+          closeNav();
+        } else {
+          openNav();
+        }
+      }
+
+      toggleButton.addEventListener('click', toggleNav);
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeNav();
+        }
+      });
+
+      navPanel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeNav);
+      });
+    }());
+  </script>
+</body>
+</html>

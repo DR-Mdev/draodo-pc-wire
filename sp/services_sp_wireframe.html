@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dorado - Services (SP Wireframe)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --mf-grad-start: #84396B;
+      --mf-grad-end: #2B0548;
+      --mf-main: #6C7FC4;
+      --mf-main-tint: #F2F4FD;
+      --mf-accent: #0E7490;
+      --mf-accent-tint: #DCF0F5;
+      --mf-surface: #F3F4F6;
+      --mf-white: #FFFFFF;
+      --mf-ink: #1A1A2E;
+      --mf-ink-mid: #4B4B6B;
+      --mf-ink-light: #7A7A9A;
+      --mf-border: #E2E4ED;
+      --mf-font-display: 'Syne', sans-serif;
+      --mf-font-body: 'DM Sans', system-ui, sans-serif;
+
+      --mf-bp-sp: 768px;
+      --mf-bp-tab: 1024px;
+
+      --mf-space-4: 4px;
+      --mf-space-8: 8px;
+      --mf-space-12: 12px;
+      --mf-space-16: 16px;
+      --mf-space-24: 24px;
+      --mf-space-32: 32px;
+      --mf-space-40: 40px;
+      --mf-space-48: 48px;
+      --mf-space-64: 64px;
+
+      --mf-shell-max: 430px;
+      --mf-header-h: 64px;
+      --mf-radius-sm: 8px;
+      --mf-radius-md: 12px;
+      --mf-radius-lg: 16px;
+      --mf-shadow: 0 8px 28px rgba(26, 26, 46, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--mf-ink);
+      background: var(--mf-surface);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.is-nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mf-page-shell {
+      width: 100%;
+      max-width: var(--mf-shell-max);
+      margin: 0 auto;
+      background: var(--mf-white);
+      min-height: 100%;
+      position: relative;
+    }
+
+    .mf-container {
+      padding-left: var(--mf-space-16);
+      padding-right: var(--mf-space-16);
+    }
+
+    .mf-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 var(--mf-space-12);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-label--light {
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .mf-page-title {
+      font-family: var(--mf-font-display);
+      font-size: clamp(24px, 7vw, 28px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .mf-section-copy {
+      font-size: 16px;
+      color: var(--mf-ink-mid);
+      line-height: 1.7;
+    }
+
+    .mf-button-primary,
+    .mf-button-secondary,
+    .mf-button-ghost,
+    .mf-header__toggle,
+    .mf-nav-panel__cta,
+    .mf-chip-list__item {
+      min-height: 44px;
+    }
+
+    .mf-button-primary,
+    .mf-button-secondary,
+    .mf-button-ghost,
+    .mf-nav-panel__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--mf-radius-sm);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .mf-button-primary {
+      color: var(--mf-white);
+      background: linear-gradient(135deg, var(--mf-grad-start), var(--mf-grad-end));
+      border: 1px solid transparent;
+    }
+
+    .mf-button-secondary {
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+      border: 1px solid transparent;
+    }
+
+    .mf-button-ghost {
+      color: var(--mf-ink);
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+    }
+
+    .mf-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--mf-border);
+    }
+
+    .mf-header__bar {
+      min-height: var(--mf-header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-header__logo {
+      font-family: var(--mf-font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--mf-grad-end);
+      text-decoration: none;
+    }
+
+    .mf-header__logo span {
+      color: var(--mf-grad-start);
+    }
+
+    .mf-header__toggle {
+      width: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--mf-border);
+      background: var(--mf-white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mf-header__toggle-bar,
+    .mf-header__toggle-bar::before,
+    .mf-header__toggle-bar::after {
+      width: 18px;
+      height: 2px;
+      background: var(--mf-ink);
+      border-radius: 999px;
+      display: block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      content: '';
+    }
+
+    .mf-header__toggle-bar {
+      position: relative;
+    }
+
+    .mf-header__toggle-bar::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+    }
+
+    .mf-header__toggle-bar::after {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar {
+      background: transparent;
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .mf-header__toggle[aria-expanded="true"] .mf-header__toggle-bar::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    .mf-nav-panel {
+      position: absolute;
+      top: calc(var(--mf-header-h) + 1px);
+      left: 0;
+      right: 0;
+      padding: 0 var(--mf-space-16) var(--mf-space-16);
+      display: none;
+    }
+
+    .mf-nav-panel.is-open {
+      display: block;
+    }
+
+    .mf-nav-panel__box {
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-lg);
+      box-shadow: var(--mf-shadow);
+      overflow: hidden;
+    }
+
+    .mf-nav-panel__list {
+      list-style: none;
+    }
+
+    .mf-nav-panel__item + .mf-nav-panel__item {
+      border-top: 1px solid var(--mf-border);
+    }
+
+    .mf-nav-panel__link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--mf-space-12);
+      min-height: 52px;
+      padding: 12px var(--mf-space-16);
+      text-decoration: none;
+      color: var(--mf-ink);
+      font-size: 15px;
+    }
+
+    .mf-nav-panel__link[aria-current="page"] {
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+      font-weight: 500;
+    }
+
+    .mf-nav-panel__footer {
+      padding: var(--mf-space-16);
+      border-top: 1px solid var(--mf-border);
+      background: var(--mf-surface);
+    }
+
+    .mf-nav-panel__cta {
+      color: var(--mf-white);
+      background: linear-gradient(135deg, var(--mf-grad-start), var(--mf-grad-end));
+    }
+
+    .mf-main > section {
+      padding-top: var(--mf-space-48);
+      padding-bottom: var(--mf-space-48);
+    }
+
+    .mf-main > section + section {
+      border-top: 1px solid var(--mf-border);
+    }
+
+    .mf-hero,
+    .mf-flow,
+    .mf-contact {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mf-hero,
+    .mf-contact {
+      background: linear-gradient(140deg, var(--mf-grad-start) 0%, var(--mf-grad-end) 100%);
+      color: var(--mf-white);
+    }
+
+    .mf-hero::before,
+    .mf-flow::before,
+    .mf-contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .mf-hero::before,
+    .mf-contact::before {
+      background-image:
+        radial-gradient(circle at 85% 16%, rgba(108, 127, 196, 0.24) 0%, transparent 52%),
+        radial-gradient(circle at 14% 86%, rgba(14, 116, 144, 0.18) 0%, transparent 46%);
+    }
+
+    .mf-flow {
+      background: linear-gradient(140deg, var(--mf-grad-start) 0%, var(--mf-grad-end) 100%);
+      color: var(--mf-white);
+    }
+
+    .mf-flow::before {
+      background-image:
+        radial-gradient(circle at 84% 18%, rgba(108, 127, 196, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 12% 84%, rgba(14, 116, 144, 0.16) 0%, transparent 48%);
+    }
+
+    .mf-hero__content,
+    .mf-flow__content,
+    .mf-contact__content {
+      position: relative;
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-hero__eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .mf-hero__title {
+      font-family: var(--mf-font-display);
+      font-size: clamp(28px, 8vw, 32px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    .mf-hero__body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .mf-hero__actions,
+    .mf-band__actions {
+      display: grid;
+      gap: var(--mf-space-12);
+      margin-top: var(--mf-space-8);
+    }
+
+    .mf-hero__support {
+      margin-top: var(--mf-space-8);
+      padding: var(--mf-space-24);
+      border-radius: var(--mf-radius-lg);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .mf-hero__support-title,
+    .mf-card__caption,
+    .mf-service-card__caption,
+    .mf-form-card__eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .mf-hero__support-title {
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-check-list,
+    .mf-card-list,
+    .mf-step-list,
+    .mf-fit-list,
+    .mf-faq-list,
+    .mf-contact__list,
+    .mf-service-list,
+    .mf-chip-list {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-check-list__item,
+    .mf-step-card__item,
+    .mf-fit-list__item,
+    .mf-contact__list-item,
+    .mf-service-list__item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: var(--mf-space-12);
+      align-items: start;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .mf-check-list__item {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .mf-check-list__item + .mf-check-list__item,
+    .mf-step-card__item + .mf-step-card__item,
+    .mf-fit-list__item + .mf-fit-list__item,
+    .mf-service-list__item + .mf-service-list__item {
+      padding-top: var(--mf-space-12);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mf-check-list__dot,
+    .mf-step-card__dot,
+    .mf-fit-list__dot,
+    .mf-service-list__dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      position: relative;
+      margin-top: 2px;
+    }
+
+    .mf-check-list__dot {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .mf-check-list__dot::after,
+    .mf-step-card__dot::after,
+    .mf-fit-list__dot::after,
+    .mf-service-list__dot::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border-radius: 50%;
+    }
+
+    .mf-check-list__dot::after,
+    .mf-step-card__dot::after {
+      background: var(--mf-accent);
+    }
+
+    .mf-step-card__dot,
+    .mf-fit-list__dot,
+    .mf-service-list__dot {
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-fit-list__dot::after,
+    .mf-service-list__dot::after {
+      background: var(--mf-accent);
+    }
+
+    .mf-step-card__dot--main,
+    .mf-service-list__dot--main {
+      background: var(--mf-main-tint);
+    }
+
+    .mf-step-card__dot--main::after,
+    .mf-service-list__dot--main::after {
+      background: var(--mf-main);
+    }
+
+    .mf-step-card__dot--grad,
+    .mf-service-list__dot--grad {
+      background: rgba(132, 57, 107, 0.14);
+    }
+
+    .mf-step-card__dot--grad::after,
+    .mf-service-list__dot--grad::after {
+      background: var(--mf-grad-start);
+    }
+
+    .mf-section-head {
+      display: grid;
+      gap: var(--mf-space-16);
+      margin-bottom: var(--mf-space-24);
+    }
+
+    .mf-card-list {
+      gap: var(--mf-space-16);
+    }
+
+    .mf-question-card,
+    .mf-path-card,
+    .mf-service-card,
+    .mf-step-card,
+    .mf-fit-card,
+    .mf-faq-card,
+    .mf-band__box,
+    .mf-form-card,
+    .mf-contact-card {
+      background: var(--mf-white);
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-lg);
+    }
+
+    .mf-question-card,
+    .mf-step-card,
+    .mf-fit-card,
+    .mf-faq-card,
+    .mf-contact-card,
+    .mf-form-card {
+      padding: var(--mf-space-24);
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.04);
+    }
+
+    .mf-question-card__title,
+    .mf-fit-card__title,
+    .mf-faq-card__title,
+    .mf-contact-card__title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: var(--mf-space-12);
+      color: var(--mf-ink);
+    }
+
+    .mf-question-card__body,
+    .mf-faq-card__body,
+    .mf-contact-card__lead {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-paths {
+      background: var(--mf-surface);
+    }
+
+    .mf-path-card {
+      overflow: hidden;
+    }
+
+    .mf-path-card + .mf-path-card {
+      margin-top: var(--mf-space-16);
+    }
+
+    .mf-path-card--featured {
+      border-color: var(--mf-main);
+    }
+
+    .mf-path-card__head,
+    .mf-service-card__head {
+      padding: var(--mf-space-24);
+      border-bottom: 1px solid var(--mf-border);
+      background: var(--mf-white);
+    }
+
+    .mf-path-card--featured .mf-path-card__head,
+    .mf-service-card--main .mf-service-card__head {
+      background: var(--mf-main-tint);
+      border-bottom-color: var(--mf-main);
+    }
+
+    .mf-service-card--accent .mf-service-card__head {
+      background: var(--mf-accent-tint);
+      border-bottom-color: rgba(14, 116, 144, 0.18);
+    }
+
+    .mf-service-card--grad .mf-service-card__head {
+      background: linear-gradient(135deg, rgba(132, 57, 107, 0.07), rgba(43, 5, 72, 0.06));
+      border-bottom-color: rgba(132, 57, 107, 0.18);
+    }
+
+    .mf-path-card__tag,
+    .mf-service-card__tag,
+    .mf-chip-list__item {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-path-card__tag,
+    .mf-service-card__tag--accent,
+    .mf-chip-list__item {
+      color: var(--mf-accent);
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-service-card__tag--main {
+      color: var(--mf-main);
+      background: rgba(108, 127, 196, 0.12);
+    }
+
+    .mf-service-card__tag--grad {
+      color: var(--mf-grad-start);
+      background: rgba(132, 57, 107, 0.08);
+    }
+
+    .mf-path-card__title,
+    .mf-service-card__title,
+    .mf-band__title,
+    .mf-form-card__title {
+      font-family: var(--mf-font-display);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--mf-ink);
+      margin-bottom: var(--mf-space-8);
+    }
+
+    .mf-path-card__lead,
+    .mf-service-card__lead,
+    .mf-band__body,
+    .mf-form-card__sub {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-path-card__body,
+    .mf-service-card__body {
+      padding: var(--mf-space-24);
+    }
+
+    .mf-service-card__caption,
+    .mf-card__caption,
+    .mf-form-card__eyebrow {
+      color: var(--mf-ink-light);
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-service-card + .mf-service-card,
+    .mf-step-card + .mf-step-card,
+    .mf-fit-card + .mf-fit-card,
+    .mf-faq-card + .mf-faq-card {
+      margin-top: var(--mf-space-16);
+    }
+
+    .mf-flow .mf-page-title,
+    .mf-flow .mf-section-copy,
+    .mf-contact .mf-page-title,
+    .mf-contact .mf-section-copy {
+      color: var(--mf-white);
+    }
+
+    .mf-flow .mf-section-copy {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .mf-step-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--mf-white);
+    }
+
+    .mf-step-card__number {
+      font-family: var(--mf-font-display);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      color: rgba(255, 255, 255, 0.34);
+      margin-bottom: var(--mf-space-16);
+      display: block;
+    }
+
+    .mf-step-card__title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--mf-white);
+      line-height: 1.5;
+      margin-bottom: var(--mf-space-12);
+    }
+
+    .mf-step-card__body {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.66);
+      line-height: 1.6;
+    }
+
+    .mf-fit-card--yes {
+      border-color: var(--mf-accent);
+      background: linear-gradient(180deg, rgba(220, 240, 245, 0.55), #ffffff 100%);
+    }
+
+    .mf-fit-card--no {
+      background: var(--mf-surface);
+    }
+
+    .mf-fit-card__title {
+      font-size: 15px;
+      margin-bottom: var(--mf-space-16);
+      padding-bottom: var(--mf-space-12);
+      border-bottom: 2px solid var(--mf-border);
+    }
+
+    .mf-fit-card--yes .mf-fit-card__title {
+      color: var(--mf-accent);
+      border-bottom-color: var(--mf-accent);
+    }
+
+    .mf-fit-card--no .mf-fit-card__title {
+      color: var(--mf-ink-light);
+    }
+
+    .mf-fit-list__item {
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-fit-list__mark,
+    .mf-faq-card__mark {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .mf-fit-list__mark--yes {
+      background: var(--mf-accent-tint);
+    }
+
+    .mf-fit-list__mark--yes::after {
+      content: '';
+      width: 7px;
+      height: 4px;
+      border-left: 1.5px solid var(--mf-accent);
+      border-bottom: 1.5px solid var(--mf-accent);
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    .mf-fit-list__mark--no,
+    .mf-faq-card__mark {
+      border: 1px solid var(--mf-border);
+      background: var(--mf-white);
+      color: var(--mf-ink-light);
+      font-size: 11px;
+      line-height: 1;
+    }
+
+    .mf-fit-list__mark--no::after,
+    .mf-faq-card__mark::after {
+      content: '×';
+    }
+
+    .mf-faq-card__head {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: var(--mf-space-12);
+      align-items: start;
+    }
+
+    .mf-band {
+      background: var(--mf-surface);
+    }
+
+    .mf-band__box {
+      padding: var(--mf-space-32) var(--mf-space-24);
+      display: grid;
+      gap: var(--mf-space-16);
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.04);
+    }
+
+    .mf-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-chip-list__item {
+      min-height: 32px;
+      padding: 0 var(--mf-space-12);
+      margin-bottom: 0;
+    }
+
+    .mf-contact .mf-section-copy {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .mf-contact__list-item {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .mf-contact-card {
+      color: var(--mf-ink);
+      box-shadow: var(--mf-shadow);
+    }
+
+    .mf-form {
+      display: grid;
+      gap: var(--mf-space-16);
+    }
+
+    .mf-form__group {
+      display: grid;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-form__label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mf-ink-mid);
+    }
+
+    .mf-form__required {
+      color: var(--mf-grad-start);
+    }
+
+    .mf-form__control {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--mf-border);
+      border-radius: var(--mf-radius-sm);
+      background: var(--mf-surface);
+      padding: 11px 14px;
+      font-family: var(--mf-font-body);
+      font-size: 14px;
+      color: var(--mf-ink);
+      outline: none;
+    }
+
+    .mf-form__control:focus {
+      border-color: var(--mf-main);
+      background: var(--mf-white);
+    }
+
+    .mf-form__textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    .mf-form__note {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--mf-ink-light);
+      text-align: center;
+    }
+
+    .mf-footer {
+      background: var(--mf-ink);
+      color: rgba(255, 255, 255, 0.72);
+      padding-top: var(--mf-space-40);
+      padding-bottom: var(--mf-space-32);
+    }
+
+    .mf-footer__grid {
+      display: grid;
+      gap: var(--mf-space-24);
+    }
+
+    .mf-footer__brand {
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-footer__logo {
+      font-family: var(--mf-font-display);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+      color: var(--mf-white);
+    }
+
+    .mf-footer__logo span {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mf-footer__copy {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.44);
+    }
+
+    .mf-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: var(--mf-space-24);
+      padding-top: var(--mf-space-24);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mf-social-row--nav {
+      margin-top: var(--mf-space-12);
+      padding-top: 0;
+      border-top: 0;
+      justify-content: center;
+    }
+
+    .mf-social-row--footer-contact {
+      margin-top: var(--mf-space-12);
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .mf-social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    .mf-social-button:hover,
+    .mf-social-button:focus-visible {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .mf-social-button:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.7);
+      outline-offset: 2px;
+    }
+
+    .mf-social-button svg {
+      display: block;
+    }
+
+    .mf-social-button--whatsapp {
+      background: #25D366;
+    }
+
+    .mf-social-button--line {
+      background: #06C755;
+    }
+
+    .mf-social-button--linkedin {
+      background: #0A66C2;
+    }
+
+    .mf-social-button--x {
+      background: #000000;
+    }
+
+    .mf-social-button--instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 6%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .mf-social-button--youtube {
+      background: #FF0000;
+    }
+
+    .mf-social-button--facebook {
+      background: #1877F2;
+    }
+
+    .mf-footer__nav-group {
+      display: grid;
+      gap: var(--mf-space-12);
+    }
+
+    .mf-footer__heading {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .mf-footer__links {
+      list-style: none;
+      display: grid;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-footer__link {
+      font-size: 14px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .mf-footer__bottom {
+      margin-top: var(--mf-space-32);
+      padding-top: var(--mf-space-24);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: var(--mf-space-8);
+    }
+
+    .mf-footer__bottom p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    .mf-wireframe-badge {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 120;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(43, 5, 72, 0.92);
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: var(--mf-shadow);
+    }
+  </style>
+</head>
+<body>
+  <div class="mf-page-shell">
+    <header class="mf-header">
+      <div class="mf-container">
+        <div class="mf-header__bar">
+          <a class="mf-header__logo" href="index.html">Dorado<span>.</span></a>
+          <button class="mf-header__toggle js-nav-toggle" type="button" aria-expanded="false" aria-controls="mf-mobile-nav" aria-label="Open navigation">
+            <span class="mf-header__toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mf-nav-panel" id="mf-mobile-nav" aria-label="Mobile navigation">
+        <div class="mf-nav-panel__box">
+          <ul class="mf-nav-panel__list">
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="who-we-work-with.html">Who we work with</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="services.html" aria-current="page">Services</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="resources.html">Resources</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="about.html">About</a></li>
+            <li class="mf-nav-panel__item"><a class="mf-nav-panel__link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="mf-nav-panel__footer">
+            <a class="mf-nav-panel__cta" href="#contact">Discuss your next step</a>
+            <div class="mf-social-row mf-social-row--nav">
+              <a class="mf-social-button mf-social-button--whatsapp" href="#" aria-label="WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 00.921.921l5.583-1.471A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--line" href="#" aria-label="LINE">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v3.98h1.676a.49.49 0 010 .98zm1.673 0a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.49.49zm4.985 0a.49.49 0 01-.389-.19l-2.167-2.95v2.65a.49.49 0 01-.98 0V8.16a.49.49 0 01.877-.303l2.167 2.95V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.488.49zm2.772 0h-1.677a.49.49 0 01-.49-.49V8.16a.49.49 0 01.49-.49h1.677a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98z"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mf-main">
+      <section class="mf-hero">
+        <div class="mf-container">
+          <div class="mf-hero__content">
+            <div class="mf-hero__eyebrow">Services</div>
+            <h1 class="mf-hero__title">What kind of support do you actually need first?</h1>
+            <p class="mf-hero__body">The service question is usually secondary. The earlier question is whether you need initial orientation, deeper validation, or a more ongoing operating cadence once the first move is already clearer.</p>
+            <div class="mf-hero__actions">
+              <a class="mf-button-primary" href="#paths">See the paths</a>
+              <a class="mf-button-secondary" href="#contact">Discuss your next step</a>
+            </div>
+            <div class="mf-hero__support">
+              <p class="mf-hero__support-title">Useful when you need to clarify</p>
+              <ul class="mf-check-list">
+                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>Whether you need orientation, validation, or an operating cadence right now</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>What should be decided first before the scope gets heavier</span></li>
+                <li class="mf-check-list__item"><span class="mf-check-list__dot"></span><span>How to move without starting too many parallel requests at once</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mf-paths" id="paths">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Start point</span>
+            <h2 class="mf-page-title">Start from the decision in front of you, not from the biggest scope.</h2>
+            <p class="mf-section-copy">Not every company should begin with the same level of support. Some need a clearer first picture. Some need evidence for a larger internal decision. Others already need structured follow-through across active work.</p>
+          </div>
+
+          <div class="mf-path-card">
+            <div class="mf-path-card__head">
+              <div class="mf-path-card__tag">01</div>
+              <h3 class="mf-path-card__title">Start with Snapshot</h3>
+              <p class="mf-path-card__lead">When the first move is still unclear and you need orientation before heavier work.</p>
+            </div>
+            <div class="mf-path-card__body">
+              <p class="mf-card__caption">Best when you need</p>
+              <ul class="mf-chip-list">
+                <li class="mf-chip-list__item">initial orientation</li>
+                <li class="mf-chip-list__item">lighter first scope</li>
+                <li class="mf-chip-list__item">clearer next decision</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mf-path-card mf-path-card--featured">
+            <div class="mf-path-card__head">
+              <div class="mf-path-card__tag">02</div>
+              <h3 class="mf-path-card__title">Move into validation research</h3>
+              <p class="mf-path-card__lead">When a larger budget or commitment decision needs more market evidence.</p>
+            </div>
+            <div class="mf-path-card__body">
+              <p class="mf-card__caption">Best when you need</p>
+              <ul class="mf-chip-list">
+                <li class="mf-chip-list__item">deeper evidence</li>
+                <li class="mf-chip-list__item">market constraints</li>
+                <li class="mf-chip-list__item">structured review</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mf-path-card">
+            <div class="mf-path-card__head">
+              <div class="mf-path-card__tag">03</div>
+              <h3 class="mf-path-card__title">Use an operating cadence</h3>
+              <p class="mf-path-card__lead">When priorities are active already and progress needs structure, sequencing, and follow-through.</p>
+            </div>
+            <div class="mf-path-card__body">
+              <p class="mf-card__caption">Best when you need</p>
+              <ul class="mf-chip-list">
+                <li class="mf-chip-list__item">active work items</li>
+                <li class="mf-chip-list__item">visible next actions</li>
+                <li class="mf-chip-list__item">ongoing follow-through</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mf-services">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Service detail</span>
+            <h2 class="mf-page-title">Choose the level of support that matches the current decision.</h2>
+            <p class="mf-section-copy">Each service is presented as a single clear card on mobile so the scope, use case, and CTA stay readable without compressing desktop structure.</p>
+          </div>
+
+          <article class="mf-service-card mf-service-card--accent">
+            <div class="mf-service-card__head">
+              <div class="mf-service-card__tag mf-service-card__tag--accent">Snapshot</div>
+              <h3 class="mf-service-card__title">Japan Entry Snapshot</h3>
+              <p class="mf-service-card__lead">A concise starting point for companies that see Japan as a real option, but have not yet clarified what should be decided first, what needs validation next, and what should wait.</p>
+            </div>
+            <div class="mf-service-card__body">
+              <p class="mf-service-card__caption">Useful when you need to decide</p>
+              <ul class="mf-service-list">
+                <li class="mf-service-list__item"><span class="mf-service-list__dot"></span><span>Whether Japan deserves priority now, later, or not yet</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot"></span><span>What should be validated before broader market work starts</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot"></span><span>Which risks come from moving too early</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot"></span><span>What can stay light for now and what needs more structure</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot"></span><span>Whether deeper validation or ongoing support is the logical next step</span></li>
+              </ul>
+              <div class="mf-band__actions">
+                <a class="mf-button-secondary" href="#contact">Discuss a Snapshot</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="mf-service-card mf-service-card--main">
+            <div class="mf-service-card__head">
+              <div class="mf-service-card__tag mf-service-card__tag--main">Validation</div>
+              <h3 class="mf-service-card__title">Custom Market Validation Research</h3>
+              <p class="mf-service-card__lead">An in-depth validation project built around your product, your market questions, and the internal decision criteria you actually need to review before a bigger move.</p>
+            </div>
+            <div class="mf-service-card__body">
+              <p class="mf-service-card__caption">Useful when you need to review</p>
+              <ul class="mf-service-list">
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--main"></span><span>Demand signals and likely demand constraints</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--main"></span><span>Routes to market and channel options worth assessing first</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--main"></span><span>Partner types, buyer patterns, and likely entry routes</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--main"></span><span>Operational or regulatory points that may slow execution</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--main"></span><span>What a realistic next move looks like after the research</span></li>
+              </ul>
+              <div class="mf-band__actions">
+                <a class="mf-button-primary" href="#contact">Discuss validation research</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="mf-service-card mf-service-card--grad">
+            <div class="mf-service-card__head">
+              <div class="mf-service-card__tag mf-service-card__tag--grad">Cadence</div>
+              <h3 class="mf-service-card__title">PartnerOps / SalesOps Cadence</h3>
+              <p class="mf-service-card__lead">A cadence-based operating model for companies that already need structured support across target definition, outreach preparation, active work items, and consistent follow-through.</p>
+            </div>
+            <div class="mf-service-card__body">
+              <p class="mf-service-card__caption">Useful when you need support across</p>
+              <ul class="mf-service-list">
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--grad"></span><span>Active priorities rather than open-ended requests</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--grad"></span><span>Target definition, materials, outreach, and meeting preparation</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--grad"></span><span>Sequencing work so everything does not start at once</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--grad"></span><span>Visible progress sharing, decision points, and next actions</span></li>
+                <li class="mf-service-list__item"><span class="mf-service-list__dot mf-service-list__dot--grad"></span><span>More practical follow-through after the first market decision</span></li>
+              </ul>
+              <div class="mf-band__actions">
+                <a class="mf-button-ghost" href="#contact">Discuss an operating cadence</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mf-flow">
+        <div class="mf-container">
+          <div class="mf-flow__content">
+            <div class="mf-section-head">
+              <span class="mf-label mf-label--light">Working logic</span>
+              <h2 class="mf-page-title">Support is structured around sequence, not around activity for its own sake.</h2>
+              <p class="mf-section-copy">The specific work changes by client, but the logic stays consistent. Clarify the decision, define the priority, work the next step, and review what that means for the following move.</p>
+            </div>
+
+            <article class="mf-step-card">
+              <span class="mf-step-card__number">01</span>
+              <h3 class="mf-step-card__title">Clarify the decision</h3>
+              <p class="mf-step-card__body">Start by making the real question visible. Usually this matters more than adding more activity immediately.</p>
+            </article>
+
+            <article class="mf-step-card">
+              <span class="mf-step-card__number">02</span>
+              <h3 class="mf-step-card__title">Set the priority</h3>
+              <p class="mf-step-card__body">Not everything deserves equal effort. Good sequencing lowers noise and avoids avoidable fixed cost.</p>
+            </article>
+
+            <article class="mf-step-card">
+              <span class="mf-step-card__number">03</span>
+              <h3 class="mf-step-card__title">Work the next step</h3>
+              <p class="mf-step-card__body">The right scope should fit the current stage, whether that means light orientation or active ongoing support.</p>
+            </article>
+
+            <article class="mf-step-card">
+              <span class="mf-step-card__number">04</span>
+              <h3 class="mf-step-card__title">Review what changed</h3>
+              <p class="mf-step-card__body">Each step should improve the next decision, not just create output that sits unused.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mf-fit">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">Focus</span>
+            <h2 class="mf-page-title">What keeps the work focused and usable.</h2>
+            <p class="mf-section-copy">The work is designed to improve clarity, sequencing, and follow-through so that the next step becomes more practical and more usable.</p>
+          </div>
+
+          <article class="mf-fit-card mf-fit-card--yes">
+            <h3 class="mf-fit-card__title">What we try to protect</h3>
+            <ul class="mf-fit-list">
+              <li class="mf-fit-list__item"><span class="mf-fit-list__mark mf-fit-list__mark--yes"></span><span>We start from the next decision that matters, not from the broadest possible scope</span></li>
+              <li class="mf-fit-list__item"><span class="mf-fit-list__mark mf-fit-list__mark--yes"></span><span>Priorities stay visible, so the work stays focused as it moves</span></li>
+              <li class="mf-fit-list__item"><span class="mf-fit-list__mark mf-fit-list__mark--yes"></span><span>The scope is kept realistic, so progress does not get diluted by too many parallel requests</span></li>
+            </ul>
+          </article>
+
+          <article class="mf-fit-card mf-fit-card--no">
+            <h3 class="mf-fit-card__title">What often needs expectation-setting</h3>
+            <ul class="mf-fit-list">
+              <li class="mf-fit-list__item"><span class="mf-fit-list__mark mf-fit-list__mark--no"></span><span>The first phase may be narrower than expected, especially when the initial decision still needs clarification</span></li>
+              <li class="mf-fit-list__item"><span class="mf-fit-list__mark mf-fit-list__mark--no"></span><span>Ongoing support is not automatically the best starting point for every company</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="mf-faq">
+        <div class="mf-container">
+          <div class="mf-section-head">
+            <span class="mf-label">FAQ</span>
+            <h2 class="mf-page-title">A few things people ask first.</h2>
+          </div>
+
+          <article class="mf-faq-card">
+            <div class="mf-faq-card__head">
+              <span class="mf-faq-card__mark"></span>
+              <div>
+                <h3 class="mf-faq-card__title">Which service should we start with?</h3>
+                <p class="mf-faq-card__body">Usually the answer depends on the decision in front of you. If the first move is still unclear, Snapshot tends to make sense. If a larger internal commitment needs evidence, validation research is usually stronger.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="mf-faq-card">
+            <div class="mf-faq-card__head">
+              <span class="mf-faq-card__mark"></span>
+              <div>
+                <h3 class="mf-faq-card__title">Can these services connect over time?</h3>
+                <p class="mf-faq-card__body">Yes. Some companies start with a Snapshot, move into validation, and only later need a more active operating cadence once the work becomes more execution-heavy.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="mf-faq-card">
+            <div class="mf-faq-card__head">
+              <span class="mf-faq-card__mark"></span>
+              <div>
+                <h3 class="mf-faq-card__title">Should every company start with ongoing support?</h3>
+                <p class="mf-faq-card__body">No. Some do, but many should not. Ongoing support is strongest when the work already has enough clarity to benefit from cadence and follow-through.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mf-band">
+        <div class="mf-container">
+          <div class="mf-band__box">
+            <span class="mf-label">Next step</span>
+            <h2 class="mf-band__title">Start with the level of support your current decision actually needs.</h2>
+            <p class="mf-band__body">You do not need to commit to the biggest scope first. A smaller first step often makes the later step much more usable.</p>
+            <div class="mf-band__actions">
+              <a class="mf-button-primary" href="#contact">Discuss your next step</a>
+              <a class="mf-button-ghost" href="#paths">Review the service paths again</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mf-contact" id="contact">
+        <div class="mf-container">
+          <div class="mf-contact__content">
+            <div class="mf-section-head">
+              <span class="mf-label mf-label--light">Contact</span>
+              <h2 class="mf-page-title">Discuss your next step in Japan.</h2>
+              <p class="mf-section-copy">You do not need a finished plan before reaching out. A short conversation is often enough to clarify what is worth deciding first, what needs deeper validation, and what can wait.</p>
+            </div>
+
+            <ul class="mf-contact__list">
+              <li class="mf-contact__list-item"><span class="mf-check-list__dot"></span><span>Message us on WhatsApp</span></li>
+              <li class="mf-contact__list-item"><span class="mf-check-list__dot"></span><span>Message us on LINE</span></li>
+              <li class="mf-contact__list-item"><span class="mf-check-list__dot"></span><span>hello@dorado.com</span></li>
+            </ul>
+
+            <div class="mf-form-card">
+              <p class="mf-form-card__eyebrow">Send us a message</p>
+              <h3 class="mf-form-card__title">Tell us where you are now and what you are trying to figure out next.</h3>
+              <p class="mf-form-card__sub">No large commitment required. We respond to serious enquiries.</p>
+              <form class="mf-form">
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="name">Name <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="company">Company</label>
+                  <input class="mf-form__control" id="company" name="company" type="text" placeholder="Company name" />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="email">Work email <span class="mf-form__required">*</span></label>
+                  <input class="mf-form__control" id="email" name="email" type="email" placeholder="name@company.com" />
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="service">What are you trying to clarify?</label>
+                  <select class="mf-form__control" id="service" name="service">
+                    <option>Initial orientation</option>
+                    <option>Validation research</option>
+                    <option>Ongoing operating cadence</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="mf-form__group">
+                  <label class="mf-form__label" for="message">Message</label>
+                  <textarea class="mf-form__control mf-form__textarea" id="message" name="message" placeholder="What are you trying to decide next?"></textarea>
+                </div>
+                <button class="mf-button-primary" type="submit">Send message</button>
+                <p class="mf-form__note">This SP wireframe keeps the form in a single column for readability and safer WordPress implementation.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mf-footer">
+      <div class="mf-container">
+        <div class="mf-footer__grid">
+          <div class="mf-footer__brand">
+            <a class="mf-footer__logo" href="index.html">Dorado<span>.</span></a>
+            <p class="mf-footer__copy">Practical support for early Japan-entry decisions, validation, and next-step planning.</p>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Company</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="about.html">About</a></li>
+              <li><a class="mf-footer__link" href="who-we-work-with.html">Who we work with</a></li>
+            </ul>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Services &amp; resources</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="services.html">Services</a></li>
+              <li><a class="mf-footer__link" href="resources.html">Resources</a></li>
+            </ul>
+          </div>
+          <div class="mf-footer__nav-group">
+            <p class="mf-footer__heading">Get in touch</p>
+            <ul class="mf-footer__links">
+              <li><a class="mf-footer__link" href="contact.html">Contact</a></li>
+              <li><a class="mf-footer__link" href="#contact">Send a message</a></li>
+            </ul>
+            <div class="mf-social-row mf-social-row--footer-contact">
+              <a class="mf-social-button mf-social-button--whatsapp" href="#" aria-label="WhatsApp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.117 1.528 5.845L.057 23.428a.75.75 0 00.921.921l5.583-1.471A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.712 9.712 0 01-4.953-1.357l-.355-.21-3.676.968.984-3.594-.232-.371A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--line" href="#" aria-label="LINE">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 .5C5.649.5.5 4.582.5 9.624c0 4.537 4.025 8.332 9.46 9.024.369.08.87.243.997.558.114.285.075.733.037 1.022l-.162 1.024c-.05.285-.229 1.114.975.607 1.204-.507 6.5-3.83 8.864-6.556C22.262 13.373 23.5 11.6 23.5 9.624 23.5 4.582 18.351.5 12 .5zm-3.564 12.62H6.27a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v3.98h1.676a.49.49 0 010 .98zm1.673 0a.49.49 0 01-.49-.49V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.49.49zm4.985 0a.49.49 0 01-.389-.19l-2.167-2.95v2.65a.49.49 0 01-.98 0V8.16a.49.49 0 01.877-.303l2.167 2.95V8.16a.49.49 0 01.98 0v4.47a.49.49 0 01-.488.49zm2.772 0h-1.677a.49.49 0 01-.49-.49V8.16a.49.49 0 01.49-.49h1.677a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98h-1.187v.96h1.187a.49.49 0 010 .98z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--linkedin" href="#" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M4.98 3.5a2.49 2.49 0 1 0 0 4.98 2.49 2.49 0 0 0 0-4.98zM3 9h4v12H3zM9 9h3.83v1.64h.05c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.57c0-1.33-.02-3.05-1.86-3.05-1.87 0-2.15 1.46-2.15 2.95V21H9z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--x" href="#" aria-label="X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18.9 2H22l-6.77 7.74L23 22h-6.05l-4.74-6.73L6.32 22H3.2l7.24-8.28L1 2h6.2l4.29 6.12L18.9 2z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--instagram" href="#" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="white" stroke-width="2"></rect><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="white"></circle></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--youtube" href="#" aria-label="YouTube">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2a3.03 3.03 0 0 0-2.13-2.15C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.37.55A3.03 3.03 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3.03 3.03 0 0 0 2.13 2.15c1.87.55 9.37.55 9.37.55s7.5 0 9.37-.55a3.03 3.03 0 0 0 2.13-2.15A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.24 3.6-6.24 3.6z"></path></svg>
+              </a>
+              <a class="mf-social-button mf-social-button--facebook" href="#" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M13.5 21v-7h2.35l.35-2.8H13.5V9.41c0-.81.22-1.36 1.38-1.36h1.47V5.56c-.25-.03-1.12-.11-2.12-.11-2.1 0-3.53 1.28-3.53 3.64v2.11H8.33V14h2.37v7h2.8z"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mf-footer__bottom">
+          <p>© 2026 Dorado. All rights reserved.</p>
+          <p>Privacy Policy</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mf-wireframe-badge">SP wireframe</div>
+  </div>
+
+  <script>
+    (function () {
+      var toggleButton = document.querySelector('.js-nav-toggle');
+      var navPanel = document.getElementById('mf-mobile-nav');
+
+      if (!toggleButton || !navPanel) {
+        return;
+      }
+
+      function openNav() {
+        toggleButton.setAttribute('aria-expanded', 'true');
+        toggleButton.setAttribute('aria-label', 'Close navigation');
+        navPanel.classList.add('is-open');
+        document.body.classList.add('is-nav-open');
+      }
+
+      function closeNav() {
+        toggleButton.setAttribute('aria-expanded', 'false');
+        toggleButton.setAttribute('aria-label', 'Open navigation');
+        navPanel.classList.remove('is-open');
+        document.body.classList.remove('is-nav-open');
+      }
+
+      function toggleNav() {
+        if (toggleButton.getAttribute('aria-expanded') === 'true') {
+          closeNav();
+        } else {
+          openNav();
+        }
+      }
+
+      toggleButton.addEventListener('click', toggleNav);
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeNav();
+        }
+      });
+
+      navPanel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeNav);
+      });
+    }());
+  </script>
+</body>
+</html>
